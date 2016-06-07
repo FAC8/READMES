@@ -109,7 +109,36 @@ p {color: blue; text-decoration: underline;}
 
 ### Selectors
 
-#### Readable CSS
+In CSS, each rule begins with a selector which selects which elements in the DOM the rule applies to.
+
+Here are some common (and less common selectors). Try applying them to the example stylesheet that you have created:
+
+`.` Selects elements with the same class.
+
+`#` Selects elements with the same id. The id value must be unique in the document, but other tags in the document can have the same class name.
+
+`[disabled]`
+Selects all elements with a "disabled" attribute.
+
+`[type='button']`
+Selects elements with a "button" type.
+
+`[class~=key]`
+Selects elements with the class "key" (but not e.g. "keyed", "monkey", "buckeye"). Functionally equivalent to .key.
+
+`[lang|=es]`
+Selects elements specified as Spanish. This includes "es" and "es-MX" but not "eu-ES" (which is Basque).
+
+`[title*="example" i]`
+Selects elements whose title contains "example", ignoring case. In browsers that don't support the "i" flag, this selector probably won't match any element.
+
+`a[href^="https://"]`
+Selects secure links.
+
+`img[src$=".png"]`
+Indirectly selects PNG images; any images that are PNGs but whose URL doesn't end in ".png" (such as when there's a query string) won't be selected.
+
+### Readable CSS
 
 ### Text Styles
 
