@@ -6,11 +6,11 @@ _This readme expects you to be familliar with some basic consepts like pushing a
 
 First thing you want to do is click this green button to create a new repository.
 
-![alal](create1.png =500x200)
+![alal](create1.png?raw=true =500x200)
 
 At this point you want to add a member of your team to your repo and give them your preferred premissions. You can do this by clicking the ``Settings`` tab.
 
-![alal](create2.png =500x400)
+![alal](create2.png?raw=true =500x400)
 
 Once you're on the ``Settings`` tab, you want to go to the collaborators and add each person by their full name or GitHub username.
 
@@ -18,7 +18,7 @@ Once you're on the ``Settings`` tab, you want to go to the collaborators and add
 
 For regular repository you don't have to give people permission to push and pull. If you are creating an organization repository remember to give everyone you want contributing the correct access.
 
-![alal](create3.png =200x200)
+![alal](create3.png?raw=true =200x200)
 
 If upon creation you didn't choose to make a ``README`` on your repository you need to initialise it by _pushing something to it_.
 
@@ -47,7 +47,7 @@ After you're happy with your changes you can:
 
 Remember to push to to your own branch not the master. You will create a pull request to merge your changes into the master. If all is good, GitHub tells you it's able to merge. After your pull request is created all your team will be notified. __Don't merge your own pull request!__
 
-![alal](create5.png =500x400)
+![alal](create5.png?raw=true =500x400)
 
 ## Merge conflicts
 
