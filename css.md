@@ -113,7 +113,7 @@ The code above results in an element with the following box model:
 
 As you see, the width property of the div above has been set to 400px, but the width of the actual element is much greater, in this case 492 pixels.
 
-The box model is without question one of the more confusing parts of HTML and CSS. We set a width property value of 400 pixels, but the actual width of our element is 492 pixels. By default the box model is additive; thus to determine the actual size of a box we need to take into account padding, borders, and margins for all four sides of the box. Our width not only includes the width property value, but also the size of the left and right padding, left and right borders, and left and right margins.
+The box model is without question one of the more confusing parts of HTML and CSS. We set a width property value of 400 pixels, but the actual width of our element is 492 pixels. By default the box model is additive; thus to determine the actual size of a box we need to take into account padding, borders, and margins for all four sides of the box. The element width not only includes the width property value, but also the size of the left and right padding, left and right borders, and left and right margins.
 
 Styling the Box:
 
