@@ -1,5 +1,7 @@
 # Manipulating the DOM
 
+![Diagram showing the structure of a web page](manipulating-the-dom-README-diagram.png)  
+_The structure of a web page_
 
 ## Nodes
 
