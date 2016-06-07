@@ -48,7 +48,7 @@ There are three DOM methods which will allow you to access elements nodes.
 It is important to write it preserving the JS camelcase style.
 
 ### getElementById
-'getelementById' is a function which takes one agrgument and it allows you to get straight to the element node with a specific id. **getElementById** is a function associated with the document object:
+'getelementById' is a function which takes one argument and it allows you to get straight to the element node with a specific id. **getElementById** is a function associated with the document object:
 
   `document.getElementById(id)`
 
