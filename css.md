@@ -60,7 +60,7 @@ Save your document as: style1.css. This file will be your stylesheet.
 * In your CSS file, copy and paste this one line, then save the file:
 
 ```css
-strong {color: red;}
+strong {color: red;} 
 ```
 
 * Now open doc1.html in your browser by copying in the directory and file name into the URL bar. You should see:
