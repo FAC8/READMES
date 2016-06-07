@@ -96,11 +96,7 @@ alert(s);
 You can do lots with table - see here for a fuller description.
 
 ## Github specific
-\@s can be used for mentions and
-
-[] \[\] uncompleted or
-
-[x] \[x\] completed items
+@s can be used for mentions and
 
 # Build a Basic README
 
