@@ -2,9 +2,9 @@
 
 ## What is it?
 
-We’ve established that Git is a version control system, similar but better than the many alternatives available. So, what makes GitHub so special? Git is a command-line tool, but the center around which all things involving Git revolve – effectively, the Hub, is GitHub.com, where developers can store their projects and network with likeminded people.
+We’ve established that Git is a version control system, similar but better than the many alternatives available. So, what makes GitHub so special? Effectively it is the Hub for git, where developers can store their projects and network with likeminded people.
 
-Let’s go over a few of the main reasons that geeks like to use GitHub, and learn some terminology along the way.
+Let’s go over a few of the main reasons that people like to use GitHub, and learn some terminology along the way.
 
 #### Repository
 
@@ -18,7 +18,7 @@ A repository is a location where all the files for a particular project are stor
 
 #### Pull requests
 
-You fork a repository, make a great revision to the project, and want it to be recognized by the original developers, maybe even included in the official project/repository. You can do so by creating a pull request, so the authors of the original repository can see your work, and then choose whether or not to accept it into the official project. Whenever you issue a pull request, GitHub provides a perfect medium for you and the project’s maintainer to communicate.
+You fork a repository, make a great revision to the project, and want it to be recognised by the original developers, maybe even included in the official project/repository. You can do so by creating a pull request, so the authors of the original repository can see your work, and then choose whether or not to accept it into the official project. Whenever you issue a pull request, GitHub provides a perfect medium for you and the project’s maintainer to communicate.
 
 #### Social networking
 
@@ -30,7 +30,5 @@ Project revisions are able to be discussed publicly, so a mass of experts can co
 
 When multiple people are collaborating on a project, it’s really hard to keep track of who changed what, and to keep track of the revisions that took place. GitHub takes care of this problem by keeping track of all the changes that have been pushed to the repository.
 
-GitHub isn’t just for developers
+#### GitHub isn’t just for developers
 All this talk about how GitHub is ideal for programmers may have you believing that they are the only ones who will find it useful. Although it’s a lot less common, GitHub can actually be used for any types of files – so if you have a team that is constantly making changes to a word document, you can actually use GitHub as your version control system.  This practice isn’t common as there are better alternatives, but keep it in mind.
-
-Now that you know what GitHub is all about, are you ready to get started? Head over to GitHub.com and be sure to check out their help pages after signing up.
