@@ -99,4 +99,3 @@ alert(s);
 
 ## Tables
 You can do lots with table - see here for a fuller description.
->>>>>>> 75614575e801a0ea82faf66076a94f4bef7a50b9
