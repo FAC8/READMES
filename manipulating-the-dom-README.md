@@ -95,7 +95,7 @@ Similarly to getElementsByTagName, it creates an array of all the elements of wi
 
 It is also possible to include multiple class names by simply separating the class names with a space (the order of the class nemaes doesnt matter):
 
-`alert(document.getElementsByClassName("paintings largePics")`;
+`alert(document.getElementsByClassName("paintings largePics"))`;
 
 ##### getElementById + getElementsByClassName
 similarly to getElementsByTagName, you can combine it with getElementById in order to target all the class elements within a specific Id element.
