@@ -14,7 +14,7 @@ Whilst there is not one universally adopted structure for a README, it can be he
 
 ## How to create your README
 
-Github will look for a file called README.md in the root of a git repository and display it by default. The file should be formatted in Markdown, a lightweight markup language with plain text formatting syntax designed so that it can be converted to HTML, which allows Github to display your page including advanced formatting, images and links.
+Github will look for a file called README.md in the root of a git repository and display it by default. The file should be formatted in Markdown, which allows Github to display your page including advanced formatting, images and links.
 
 
 
@@ -27,8 +27,3 @@ Github will look for a file called README.md in the root of a git repository and
 ###### ``######`` H6
 
 ``_``_italics_``_``
-
-
-## Create your own README
-
-Let's create a README
