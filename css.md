@@ -127,9 +127,9 @@ You can use borders to decorate elements with lines or boxes.
 
 To specify the same border all around an element, use the border property. Specify the width (usually in pixels for display on a screen), the style, and the color.
 
-* Example on using colors and borders:
+* Examples on using colors and borders:
 
-This following rule sets the background color and the top border of heading elements:
+The following rule sets the background color and the top border of heading elements:
 
 ```css
 h3 {
@@ -139,7 +139,34 @@ h3 {
   }
 ```
 
+This rule makes images easier to see by giving them a mid-gray border all round:
 
+```css
+img {border: 2px solid #ccc;}
+```
+
+Add an image to your doc1.html and style that image with the above css rule in your style1.css
+
+* Margins and padding
+
+Use margins and padding to adjust elements' positions and to create space around them.
+
+If you specify one width (or margin), it applies all around the element (top, right, bottom and left).
+
+If you specify two widths (or margins), the first applies to the top and bottom, the second to the right and left.
+
+You can specify all four widths (or margins) in the order: top, right, bottom, left.
+
+Try it out in your files!  In doc1.html, give one <p> a class 'remark'.  Then put the following code into your style1.css:
+
+```css
+p.remark {
+  border: 2px solid red;
+  padding: 4px;
+  margin-left: 24px;
+  }
+```
+You can play with the margin and padding widths to see the result on your rendered page!  Notice how padding all round separates the border from the text a little; a left margin indents the paragraph relative to the rest of the text.
 
 ### Layout
 
