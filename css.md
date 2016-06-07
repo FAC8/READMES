@@ -60,7 +60,7 @@ Save your document as: style1.css. This file will be your stylesheet.
 * In your CSS file, copy and paste this one line, then save the file:
 
 ```css
-strong {color: red;} 
+strong {color: red;}
 ```
 
 * Now open doc1.html in your browser by copying in the directory and file name into the URL bar. You should see:
@@ -68,6 +68,44 @@ strong {color: red;}
 ![Exercise 1 example](CSS.png)
 
 ### Cascading and Inheritance
+
+The final style for an element can be specified in many different places, which can interact in a complex way. This complex interaction makes CSS powerful, but it can also make it confusing and difficult to debug.
+
+Three main sources of style information form a cascade. They are:
+
+* The browser's default styles for the markup language.
+
+* Styles specified by a user who is reading the document.
+
+* The styles linked to the document by its author. These can be specified in three places:
+
+  * In an external file: for example the stylesheet style.css that you have created.
+  * In a definition at the beginning of the document: use this method only for styles that are used only on that page.
+  * On a specific element in the body of the document: this is the least maintainable method, but can be used for testing.
+
+Priority is given in the following order:
+
+1. The author stylesheets
+2. The reader stylesheets
+3. The browser's defaults
+
+So if no style is specified the browser uses its own defaults. The browser default will be overwritten if there is a reader stylesheet, and this reader stylesheet will be overwritten by a style that the author has specified.
+
+For inherited styles, a child node's own style has priority over style inherited from its parent.
+
+Let's do an example!
+
+#### Exercise 2 Using inheritance
+
+* Open style1.css in your editor.
+
+* Add the below line by copying and pasting it:
+```css
+p {color: blue; text-decoration: underline;}
+```
+* It does not really matter whether you add it above or below the line that is already there. However, adding it at the top is more logical because in your document the `<p>` element is the parent of the `<strong>` element.
+
+* Now refresh your browser to see the effect on doc1.html. The underlining affects all the text in the paragraph, including the initial letters. The `<strong>` elements have inherited the underlined style from their parent `<p>` element.
 
 ### Selectors
 
