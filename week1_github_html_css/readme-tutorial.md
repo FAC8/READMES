@@ -93,7 +93,7 @@ alert(s);
 ```
 
 ## Tables
-You can do lots with table - see here for a fuller description.
+You can do lots with table - see [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for a fuller description.
 
 ## Github specific
 @s can be used for mentions and
