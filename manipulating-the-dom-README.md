@@ -25,3 +25,9 @@ So in the code block:
 * `<p></p>` is an **element node**
 * `Element and Text and Attribute Nodes – oh my!` is a **text node**
 * `id="attribute"` is an **attribute node**
+
+## Further Reading
+* You can [find a series of interactive tutorials which take you through manipulating the DOM here](https://dom-tutorials.appspot.com/static/index.html)
+* Tuts+ cover the DOM [in their introduction to Javascript](http://code.tutsplus.com/tutorials/javascript-and-the-dom-series-lesson-1--net-3134)
+* MDN also have a fairly [comprehensive introduction to the DOM](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction)
+
