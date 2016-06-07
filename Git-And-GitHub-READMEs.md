@@ -1,3 +1,33 @@
+# Git
+
+Git is a version control system. It allows a team of people to work together, all using the same files. And it helps the team cope with the confusion that tends to happen when multiple people are editing the same files.
+
+The version control system has the following benefits:
+
+*	You have access to all versions of all files in Git repository at any time, it’s almost impossible to lose any part of a code.
+
+*	Multiple developers can work on one project at the same time without interfering with each other, and without fear of losing any changes made by a colleague. In Git, the possibilities of collaborative work are unlimited.
+
+#### The States of Git
+
+Git has **three** main states that your files can reside in: *committed, modified, and staged*.
+
+**Committed** means that the data is safely stored in your local database. **Modified** means that you have changed the file but have not committed it to your database yet. **Staged** means that you have marked a modified file in its current version to go into your next commit snapshot.
+
+The Git directory is where Git stores the metadata and object database for your project. This is the most important part of Git, and it is what is copied when you clone a repository from another computer.
+
+The working directory is a single checkout of one version of the project. These files are pulled out of the compressed database in the Git directory and placed on disk for you to use or modify.
+
+The staging area is a file, generally contained in your Git directory, that stores information about what will go into your next commit. It’s sometimes referred to as the “index”, but it’s also common to refer to it as the staging area.
+
+The basic Git workflow goes something like this:
+
+* You modify files in your working directory.
+
+* You stage the files, adding snapshots of them to your staging area.
+
+* You do a commit, which takes the files as they are in the staging area and stores that snapshot permanently to your Git directory.
+
 # Github
 
 ## What is it?
@@ -34,36 +64,6 @@ GitHub isn’t just for developers
 All this talk about how GitHub is ideal for programmers may have you believing that they are the only ones who will find it useful. Although it’s a lot less common, GitHub can actually be used for any types of files – so if you have a team that is constantly making changes to a word document, you can actually use GitHub as your version control system.  This practice isn’t common as there are better alternatives, but keep it in mind.
 
 Now that you know what GitHub is all about, are you ready to get started? Head over to GitHub.com and be sure to check out their help pages after signing up.
-
-# Git
-
-Git is a version control system. It allows a team of people to work together, all using the same files. And it helps the team cope with the confusion that tends to happen when multiple people are editing the same files.
-
-The version control system has the following benefits:
-
-*	You have access to all versions of all files in Git repository at any time, it’s almost impossible to lose any part of a code.
-
-*	Multiple developers can work on one project at the same time without interfering with each other, and without fear of losing any changes made by a colleague. In Git, the possibilities of collaborative work are unlimited.
-
-#### The States of Git
-
-Git has **three** main states that your files can reside in: *committed, modified, and staged*.
-
-**Committed** means that the data is safely stored in your local database. **Modified** means that you have changed the file but have not committed it to your database yet. **Staged** means that you have marked a modified file in its current version to go into your next commit snapshot.
-
-The Git directory is where Git stores the metadata and object database for your project. This is the most important part of Git, and it is what is copied when you clone a repository from another computer.
-
-The working directory is a single checkout of one version of the project. These files are pulled out of the compressed database in the Git directory and placed on disk for you to use or modify.
-
-The staging area is a file, generally contained in your Git directory, that stores information about what will go into your next commit. It’s sometimes referred to as the “index”, but it’s also common to refer to it as the staging area.
-
-The basic Git workflow goes something like this:
-
-* You modify files in your working directory.
-
-* You stage the files, adding snapshots of them to your staging area.
-
-* You do a commit, which takes the files as they are in the staging area and stores that snapshot permanently to your Git directory.
 
 #### GitHub isn’t just for developers
 All this talk about how GitHub is ideal for programmers may have you believing that they are the only ones who will find it useful. Although it’s a lot less common, GitHub can actually be used for any types of files – so if you have a team that is constantly making changes to a word document, you can actually use GitHub as your version control system.  This practice isn’t common as there are better alternatives, but keep it in mind.
