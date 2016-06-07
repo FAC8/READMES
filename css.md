@@ -69,17 +69,96 @@ strong {color: red;}
 
 ### Cascading and Inheritance
 
+The final style for an element can be specified in many different places, which can interact in a complex way. This complex interaction makes CSS powerful, but it can also make it confusing and difficult to debug.
+
+Three main sources of style information form a cascade. They are:
+
+* The browser's default styles for the markup language.
+
+* Styles specified by a user who is reading the document.
+
+* The styles linked to the document by its author. These can be specified in three places:
+
+  * In an external file: for example the stylesheet style.css that you have created.
+  * In a definition at the beginning of the document: use this method only for styles that are used only on that page.
+  * On a specific element in the body of the document: this is the least maintainable method, but can be used for testing.
+
+Priority is given in the following order:
+
+1. The author stylesheets
+2. The reader stylesheets
+3. The browser's defaults
+
+So if no style is specified the browser uses its own defaults. The browser default will be overwritten if there is a reader stylesheet, and this reader stylesheet will be overwritten by a style that the author has specified.
+
+For inherited styles, a child node's own style has priority over style inherited from its parent.
+
+Let's do an example!
+
+#### Exercise 2 Using inheritance
+
+* Open style1.css in your editor.
+
+* Add the below line by copying and pasting it:
+```css
+p {color: blue; text-decoration: underline;}
+```
+* It does not really matter whether you add it above or below the line that is already there. However, adding it at the top is more logical because in your document the `<p>` element is the parent of the `<strong>` element.
+
+* Now refresh your browser to see the effect on doc1.html. The underlining affects all the text in the paragraph, including the initial letters. The `<strong>` elements have inherited the underlined style from their parent `<p>` element.
+
 ### Selectors
 
-#### Readable CSS
+In CSS, each rule begins with a selector which selects which elements in the DOM the rule applies to.
 
-### Text Styles
+Here are some common (and less common selectors). Try applying them to the example stylesheet that you have created:
 
-### Color
+`.` Selects elements with the same class.
 
-### Content
+`#` Selects elements with the same id. The id value must be unique in the document, but other tags in the document can have the same class name.
 
-### Lists
+`[disabled]`
+Selects all elements with a "disabled" attribute.
+
+`[type='button']`
+Selects elements with a "button" type.
+
+`[class~=key]`
+Selects elements with the class "key" (but not e.g. "keyed", "monkey", "buckeye"). Functionally equivalent to .key.
+
+`[lang|=es]`
+Selects elements specified as Spanish. This includes "es" and "es-MX" but not "eu-ES" (which is Basque).
+
+`[title*="example" i]`
+Selects elements whose title contains "example", ignoring case. In browsers that don't support the "i" flag, this selector probably won't match any element.
+
+`a[href^="https://"]`
+Selects secure links.
+
+`img[src$=".png"]`
+Indirectly selects PNG images; any images that are PNGs but whose URL doesn't end in ".png" (such as when there's a query string) won't be selected.
+
+A CSS pseudo-class is a keyword added to selectors that specifies a special state of the element to be selected. For example `:hover` will apply a style when the user hovers over the element specified by the selector.
+
+Here is a list of pseudo-classes for you to try out:
+
+* :link
+* :visited
+* :active
+* :hover
+* :focus
+* :first-child
+* :last-child
+* :nth-child
+* :nth-last-child
+* :nth-of-type
+* :first-of-type
+* :last-of-type
+* :empty
+* :target
+* :checked
+* :enabled
+* :disabled
 
 ### Box Model
 
