@@ -27,11 +27,6 @@ Github will look for a file called README.md in the root of a git repository and
 
 ## Basic Text Formatting
 
-
-
-\__italics_\_
-\_\___bold__\_\_
-
 \**italics*\*
 \*\***bold**\*\*
 
@@ -59,7 +54,7 @@ Github will look for a file called README.md in the root of a git repository and
   - you can create unordered
 4. and ordered
   1. sublists  
-5. Use \+ \- or \* for unordered lists.
+5. Use \+, \- or \* for unordered lists.
 
 
 ##  Links
@@ -99,3 +94,26 @@ alert(s);
 
 ## Tables
 You can do lots with table - see here for a fuller description.
+
+## Github specific
+\@s can be used for mentions and
+
+[] \[\] uncompleted or
+
+[x] \[x\] completed items
+
+# Build a Basic README
+
+The simplest way to create a README is when creating a repository. Underneath the "Private/Public" selection check the "Initialize this repository with a README" box. This will create a README with the title and decription of the repository.
+
+Clone the repo to your local machine and open the README.md file.
+
+Add a few section titles and change the main title if you like.
+
+Under one of the titles add a code block in any language using
+
+\`\`\`javascript
+
+Your code goes here
+
+\`\`\`
