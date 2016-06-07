@@ -6,7 +6,7 @@ _This readme expects you to be familliar with some basic consepts like pushing a
 
 First thing you want to do is click this green button to create a new repository.
 
-![alal](create1.png =500x200)
+![alal](create1.png?raw=true =500x200)
 
 At this point you want to add a member of your team to your repo and give them your preferred premissions. You can do this by clicking the ``Settings`` tab.
 
