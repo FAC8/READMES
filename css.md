@@ -99,7 +99,7 @@ The padding, border and margin can have different sizes on the top, right, botto
 
 Let’s look these properties inside some code:
 
-```HTML
+```css
 div {
   border: 6px solid #949599;
   height: 100px;
@@ -131,13 +131,14 @@ To specify the same border all around an element, use the border property. Speci
 
 This following rule sets the background color and the top border of heading elements:
 
+```css
 h3 {
   border-top: 4px solid #7c7; /* mid green */
   background-color: #efe;     /* pale green */
   color: #050;                /* dark green */
   }
+```
 
-* Tutorial
 
 
 ### Layout
