@@ -61,6 +61,7 @@ If you still __AFTER ALL THIS__ have a merge conflict, here is what to do;
 2. From the branch you're working on ``git merge master``
 3. Open the file in your preferred editor and you will see the line causing the merge conflict highlighted. You will see two versions of the line, one is your local one and one you is pulled from the master. 
 ![alal](create7.png?raw=true =500x200)
+
 4.Decide which line you want to keep delete the rest of the conflicting lines after that save the file and make a new pull request.
 
 ##Afterthoughts
