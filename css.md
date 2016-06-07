@@ -138,15 +138,27 @@ Selects secure links.
 `img[src$=".png"]`
 Indirectly selects PNG images; any images that are PNGs but whose URL doesn't end in ".png" (such as when there's a query string) won't be selected.
 
-### Readable CSS
+A CSS pseudo-class is a keyword added to selectors that specifies a special state of the element to be selected. For example `:hover` will apply a style when the user hovers over the element specified by the selector.
 
-### Text Styles
+Here is a list of pseudo-classes for you to try out:
 
-### Color
-
-### Content
-
-### Lists
+* :link
+* :visited
+* :active
+* :hover
+* :focus
+* :first-child
+* :last-child
+* :nth-child
+* :nth-last-child
+* :nth-of-type
+* :first-of-type
+* :last-of-type
+* :empty
+* :target
+* :checked
+* :enabled
+* :disabled
 
 ### Box Model
 
