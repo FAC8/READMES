@@ -1,3 +1,6 @@
+# Git and GitHub
+*This readme should familiarise you with the basic uses of Git and Github and the differences between the two.*
+
 # Git
 
 Git is a version control system. It allows a team of people to work together, all using the same files. And it helps the team cope with the confusion that tends to happen when multiple people are editing the same files.
