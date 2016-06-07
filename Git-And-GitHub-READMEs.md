@@ -32,3 +32,7 @@ When multiple people are collaborating on a project, it’s really hard to keep 
 
 #### GitHub isn’t just for developers
 All this talk about how GitHub is ideal for programmers may have you believing that they are the only ones who will find it useful. Although it’s a lot less common, GitHub can actually be used for any types of files – so if you have a team that is constantly making changes to a word document, you can actually use GitHub as your version control system.  This practice isn’t common as there are better alternatives, but keep it in mind.
+
+# Whats the difference?
+
+Git is a version control system that tracks your changes when working with electronic media, such as software applications. GitHub is a repository for this media. GitHub pros may say that GitHub has much more functionality than that, and while that is true, it is not necessary to utilize that functionality in order to use GitHub with Git.
