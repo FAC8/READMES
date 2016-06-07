@@ -28,6 +28,8 @@ The basic Git workflow goes something like this:
 
 * You do a commit, which takes the files as they are in the staging area and stores that snapshot permanently to your Git directory.
 
+![Git workflow](http://i.stack.imgur.com/eXlL8.png)
+
 # Github
 
 ## What is it?
