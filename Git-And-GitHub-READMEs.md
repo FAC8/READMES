@@ -52,6 +52,8 @@ A repository is a location where all the files for a particular project are stor
 
 You fork a repository, make a great revision to the project, and want it to be recognised by the original developers, maybe even included in the official project/repository. You can do so by creating a pull request, so the authors of the original repository can see your work, and then choose whether or not to accept it into the official project. Whenever you issue a pull request, GitHub provides a perfect medium for you and the project’s maintainer to communicate.
 
+![github](https://github-images.s3.amazonaws.com/enterprise/11.10.340/user/assets/images/help/pull_requests/pull-request-review-page.png)
+
 #### Social networking
 
 The social networking aspect of GitHub is probably its most powerful feature, and is what allows projects to grow more than anything else. Each user on GitHub has their own profile, which can act like a resume of sorts, showing your past work and contributions to other projects via pull requests.
