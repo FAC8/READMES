@@ -80,7 +80,7 @@ This gets a bit trickier. The only way we have found to do this is to override t
   });
 ```
 
-Now (in theory), when we call `xhr.open` within `requester`, we set the `readyState` to 4, the `status` to 200, and call `onreadystatechange`, executing our callback. Note the first and last lines, which save and restore the original prototype.
+Now (in theory), when we call `xhr.open` within `requester`, we set the `readyState` to 4, the `status` to 200, and call `onreadystatechange`, executing our callback. Note the first and last lines, which save and restore the original prototype. Also, note that `requester` must now be rewritten to accept a second parameter, `callbacks` which will contain the callbacks that we wish to execute for different eventualities.
 
 >At the moment, this does not work. You can verify through the console that the `onSuccess` spy function is executed, but for some reason, Jasmine does not record this fact. For example, set `callbacks.onSuccess` to `console.log('worked')` and you will see that the function executed.
 
