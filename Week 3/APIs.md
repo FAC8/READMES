@@ -39,7 +39,7 @@ When one site pulls in data from the other, the site providing the data is actin
 
 ### REST API
 
-In progress.
+REST is an architecture style that allows machines to make calls using HTTP protocols. A communication can be described as RESTful if it conforms to these protocols.
 
 ## What are API keys?
 
@@ -100,3 +100,5 @@ You can use public and private key pairs to save having to send your key to the 
 Read more about this [Here](https://en.wikipedia.org/wiki/Public-key_cryptography)
 
 * [An introduction to APIs by Brian Cooksey](https://zapier.com/learn/apis/chapter-1-introduction-to-apis/)
+
+* [RESTful Programming](http://rest.elkstein.org/)
