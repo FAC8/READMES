@@ -9,7 +9,7 @@ HTTP is the foundation of the modern web. It stands for Hypertext Transfer Proto
 
 When you type a webpage URL in the browser and hit Enter, the browser makes an HTTP GET request. Here is an example of what that looks like:
 
-![console log](http-request-imgs/console-log.png =600x)
+![console log](http-request-imgs/console-log.png?raw=true =600x)
 
 Let's take a look at some of the main elements:
 
