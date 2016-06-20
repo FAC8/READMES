@@ -80,7 +80,21 @@ This gets a bit trickier. The only way we have found to do this is to override t
   });
 ```
 
-Now (in theory), when we call `xhr.open` within `requester`, we set the `readyState` to 4, the `status` to 200, and call `onreadystatechange`, executing our callback. Note the first and last lines, which save and restore the original prototype. Also, note that `requester` must now be rewritten to accept a second parameter, `callbacks` which will contain the callbacks that we wish to execute for different eventualities.
+Now (in theory), when we call `xhr.open` within `requester`, we set the `readyState` to 4, the `status` to 200, and call `onreadystatechange`, executing our callback. Note the first and last lines, which save and restore the original prototype. Also, note that `requester` must now be rewritten to accept a second parameter, `callbacks` which will contain the callbacks that we wish to execute for different eventualities:
+
+```
+function requester(url, callbacks){
+
+	xhr = new XMLHttpRequest()
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState ===4 && xhr.status===200){
+			callbacks.onSuccess();
+		}
+	}
+	xhr.open('GET', url, true)
+	xhr.send()
+}
+```
 
 >At the moment, this does not work. You can verify through the console that the `onSuccess` spy function is executed, but for some reason, Jasmine does not record this fact. For example, set `callbacks.onSuccess` to `console.log('worked')` and you will see that the function executed.
 
@@ -108,7 +122,24 @@ The principles for testing an error would be similar:
   });
 ```
 
-All we have done is set the status to 404 instead of 200, so we can take a different route inside the `onreadystatechange` event handler.
+All we have done is set the status to 404 instead of 200, so we can take a different route inside the `onreadystatechange` event handler:
+
+```
+function requester(url, callbacks){
+
+	xhr = new XMLHttpRequest()
+	xhr.onreadystatechange = function(){
+		if(xhr.readyState ===4 && xhr.status===200){
+			callbacks.onSuccess();
+		}
+        else if(xhr.readyState ===4 && xhr.status===404){
+			callbacks.onError();
+		}
+	}
+	xhr.open('GET', url, true)
+	xhr.send()
+}
+```
 
 ##Testing the remote server
 
