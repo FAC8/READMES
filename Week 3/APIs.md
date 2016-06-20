@@ -39,54 +39,66 @@ When one site pulls in data from the other, the site providing the data is actin
 
 ### REST API
 
-In progress.
+REST is an architecture style that allows machines to make calls using HTTP protocols. A communication can be described as RESTful if it conforms to these protocols.
 
-## What are API keys and how can you keep them secret / conceal them (without a backend)?
+## What are API keys?
 
+An API key is string of letters and digits that can be included in an API request
 
+API keys serve multiple purposes:
 
-Can be used as login to access an API and can also be used to track an API's usage.
+- As a login to restrict access to the API.
+- To track the usage of the API by a particular party.
+- To prevent tampering with the request
 
-Can be used in the request content to verify the origin and prevent tampering with the requested values
+### As a login
 
-You can restrict access to content and content editing capabilities based on the key used in the request.
+A server may want to restrict the ability for parties to read or write information. By using an API key, the server
+can determine whether to complete the request based on the permissions accorded to the requester.
+Not only does this enable the server to identify who is making the request, but if the user has a password protected account,
+it saves them from having to send their password to the server. API keys are often much longer than a regular account password.
 
-Also means user doesn't have to use their password.
+### To track usage
 
-Public & private key pairs can be used for two things:
-The holder of a public key can use it to identify whether a message orginated from someone with a paired private key.
-OR
-The holder of a private key can decrypt messages from people with a public key.
+Requests associated with a particular key can be recorded by the owner of the API. This has many advantages. The owner of the API may want to charge for their services, identify how many seperate accounts are using the API and other analytics. I can also be useful to the API key owner who may want to check whether anyone else has been using their key.
 
-Since you will be working on projects on github, including your API key in your code will make it available to anyone. You man
-not want to do this.
+### To prevent tampering with the request
 
-You can mark a config file as ignored so that it is not included in source control.
+API keys can be used to encrypt the request and so prevent tampering with the message if it is intercepted.
 
-You can put your key in a configuration file which is read by your code at startup - this configuration file will have to be
-recreated in order to copy your request and the copier will not be able to see you API key.
+## How can you keep them secret / conceal them (without a backend)?
+
+For the keys to be useful they must only be known to the parties intended. Using source and version control like github to create websites that use an API key can be problematic as you will have to include your API key in any requests you make to the API. Storing the key in the source documents means it is avaiable to everyone. Additionally, anyone who inspects you website will be able to see the key in the .js file or whatever location you store it.
+
+### Keeping the key secret
+
+If you don't have a backend to store restricted information like a key you can use a .config file stored on you local machine. By getting github to ignore this file when updating github you can keep this information from being public. You can then just include script to read the file and get the key without putting it in the public domain. If multiple people are working of the same project they will all have to create an ignored version of this file containing the key on their own machine.
 
 ```
 <appSettings>      
     <add key="name" value="someValue" />
     <add key="name" value="someSECRETValue" />
 </appSettings>
+```
 
 We don't want secrets in there! Instead, move them out like this:
 
+```
 <appSettings file="Web.SECRETS.config">      
     <add key="name" value="someValue" />
 </appSettings>
 ```
 
-You then include another <appSettings> section in the Web.SECRETS.config file.
-
-An application programming interface key (API key) is a code passed in by computer programs calling an API (application programming interface) to identify the calling program, its developer, or its user to the Web site. API keys are used to track and control how the API is being used, for example to prevent malicious use or abuse of the API (as defined perhaps by terms of service).
-
-The API key often acts as both a unique identifier and a secret token for authentication, and will generally have a set of access rights on the API associated with it.
-
-API keys can be based on the UUID system to ensure they will be unique to each user.
+We then include the key in the Web.SECRETS.cofig file which will be accessed when necsessary.
 
 ### Resources
 
+#### Messages may be intercepted an the API key stolen.
+
+You can use public and private key pairs to save having to send your key to the API.
+
+Read more about this [Here](https://en.wikipedia.org/wiki/Public-key_cryptography)
+
 * [An introduction to APIs by Brian Cooksey](https://zapier.com/learn/apis/chapter-1-introduction-to-apis/)
+
+* [RESTful Programming](http://rest.elkstein.org/)
