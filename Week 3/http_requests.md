@@ -24,7 +24,7 @@ Two parts of an HTTP Request that are worth looking at in more detail are the st
 ###Urls
 Urls follow the following format:
 
-![url format](http-request-imgs/url-structure.png =600x)
+![url format](http-request-imgs/url-structure.png?raw=true =600x)
 
 
 ###Verbs
@@ -38,7 +38,7 @@ As mentioned above, the most commonly used verb is GET, but some others are:
 
 After the Client has made a request, the Server will return a Response. Let's take a look at the HTTP Response:
 
-![url format](http-request-imgs/console-log-response.png =600x)
+![url format](http-request-imgs/console-log-response.png?raw=true =600x)
 
 ###Status codes
 
@@ -58,7 +58,7 @@ Next, the body of the response contains the data we requested, which is generall
 ##Tools 
 There are a number of tools available to monitor HTTP communication. The most popular among web developers is the Network tab in Chrome/Webkit inspector.	
 
-![Chrome Network Inspector](http-request-imgs/chrome-network-inspector.png =600x)
+![Chrome Network Inspector](http-request-imgs/chrome-network-inspector.png?raw=true =600x)
 
 ###References
 - [HTTP for beginners argument](http://learn.onemonth.com/understanding-http-basics)
