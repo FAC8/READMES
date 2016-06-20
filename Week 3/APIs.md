@@ -2,12 +2,17 @@
 
 ## What is an API?
 
-If a UI allows a user to interact with a program, an API is an interface through
-which two programs may interact with one another.
+If a UI (user interface) allows a user to interact with a program, an API (application
+programming interface) is the interface through which two programs may interact with
+one another. It is provided by any program that allows interaction with other programs.
 
 It can be understood as a contract or agreement provided by one piece of computer
 software to another, stating: "if you give me this instruction, I will perform this action,
 or return this information."
+
+Through APIs your program may access and use the functionality defined in other programs,
+or create, retrieve, edit and delete resources in other programs. It makes a program's data
+digestible for another program.
 
 ### Request-Response Cycle
 
@@ -15,20 +20,26 @@ Compared to human standards, computers communicate via extremely rigid and speci
 rules. These are called "protocols."
 
 A program can make a "request" to another program, and if the request follows the protocols
-defined by the API of the receiving program then it can fulfill the request and respond,
-which completes the request-response cycle.
+defined by the API of the receiving program then it can fulfil the request and respond,
+fulfilling the requested action. This completes the request-response cycle,
+until another request is made.
 
-Two programs can interact without an API
+![](http://image.slidesharecdn.com/rg-introductiontohtmlcssandjavascript-150206101801-conversion-gate01/95/rails-girls-introduction-to-html-css-11-638.jpg?cb=1423239531)
 
+### HTTP API
 
+When used in the context of web development, an API is typically defined as a set of Hypertext Transfer Protocol (HTTP) request messages, along with a definition of the structure of response messages, which is usually in an Extensible Markup Language (XML) or JavaScript Object Notation (JSON) format.
 
-The server (receiving party) has to know exactly how the client (requesting party)
-will arrange its messages for them to communicate.
+They are typically used to send commands to programs running on the servers that you connect to from
+your browser or with the browser itself. This allows you to access resources only available on the server.
 
-The interaction between the two programs must follow certain rules called protocols, defined by the API of the receiving party.
-Requests sent to an API will be interpreted. If the request follow the protocols defined by the API then the recipient can fulfill the request.
+When one site pulls in data from the other, the site providing the data is acting as the server, and the site fetching the data is acting as the client.
 
-Scripts can interact without an API: a script may parse a webpage and return the content
+![](https://zapier.cachefly.net/static/CpTucd/images/learn/apis/communicating-with-server.jpg)
+
+### REST API
+
+In progress.
 
 ## What are API keys and how can you keep them secret / conceal them (without a backend)?
 
@@ -75,3 +86,7 @@ An application programming interface key (API key) is a code passed in by comput
 The API key often acts as both a unique identifier and a secret token for authentication, and will generally have a set of access rights on the API associated with it.
 
 API keys can be based on the UUID system to ensure they will be unique to each user.
+
+### Resources
+
+* [An introduction to APIs by Brian Cooksey](https://zapier.com/learn/apis/chapter-1-introduction-to-apis/)
