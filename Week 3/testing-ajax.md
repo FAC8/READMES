@@ -61,7 +61,7 @@ IMPORTANT NOTE: when we passed in `open` to be spied on, we added the method `.a
 This gets a bit trickier. The only way we have found to do this is to override the XMLHttpRequest constructor prototype like this:
 
 ```
-  it('should receive a successful response', function() {
+  it('should execute the right callback on success', function() {
 	  oldOpen = XMLHttpRequest.prototype.open;
 	  XMLHttpRequest.prototype.open = function(type, url, async){
 		  this.readyState = 4;
@@ -70,17 +70,16 @@ This gets a bit trickier. The only way we have found to do this is to override t
 		  this.send = function(){}
 	  }
     var callbacks = {
-      onSuccess: jasmine.createSpy('onSuccess'),
-      onError: jasmine.createSpy('onError')
+      onSuccess: jasmine.createSpy('onSuccess')
     };
-    var url = 'ProductData.json';
+    var url = 'url to test';
     requester(url, callbacks);
     expect(callbacks.onSuccess).toHaveBeenCalled();
 	XMLHttpRequest.prototype.open = oldOpen;
   });
 ```
 
-Now (in theory), when we call `xhr.open` within `requester`, we set the `readyState` to 4, the `status` to 200, and call `onreadystatechange`, executing our callback. Note the first and last lines, which save and restore the original prototype. Also, note that `requester` must now be rewritten to accept a second parameter, `callbacks` which will contain the callbacks that we wish to execute for different eventualities:
+Now (in theory), when we call `xhr.open` within `requester`, we set the `readyState` of our object instance to 4, the `status` to 200, and call `onreadystatechange`, which should in turn execute our callback. We override `send` with an empty function because since we are not really opening a request calling the real `send` method would throw an error. Note the first and last lines, which save and restore the original prototype. Also, note that `requester` must now be rewritten to accept a second parameter, `callbacks` which will contain the callbacks that we wish to execute for different eventualities.
 
 ```
 function requester(url, callbacks){
@@ -95,15 +94,16 @@ function requester(url, callbacks){
 	xhr.send()
 }
 ```
-
->At the moment, this does not work. You can verify through the console that the `onSuccess` spy function is executed, but for some reason, Jasmine does not record this fact. For example, set `callbacks.onSuccess` to `console.log('worked')` and you will see that the function executed.
+ We do not pass in the actual callbacks, however, but spy functions created by Jasmine `createSpy()`. This allows us to keep track of whether the function was in fact executed by using (among many other possibilities) `expect().toHaveBeenCalled()`.
+ 
+>At the moment, this does not work. It looks like the function given in the `callbacks` object is correctly executed, but for some reason, when that function is a spy function, Jasmine is not recording that the function was executed (if it was). For example, set `callbacks.onSuccess` to `console.log('worked')` and you will see by the console output that the function was indeed executed.
 
 ##Testing that the correct function is executed if an error is thrown
 
 The principles for testing an error would be similar:
 
 ```
-  it('should receive a successful response', function() {
+  it('should execute the right callback on an error', function() {
 	  oldOpen = XMLHttpRequest.prototype.open;
 	  XMLHttpRequest.prototype.open = function(type, url, async){
 		  this.readyState = 4;
@@ -115,14 +115,14 @@ The principles for testing an error would be similar:
       onSuccess: jasmine.createSpy('onSuccess'),
       onError: jasmine.createSpy('onError')
     };
-    var url = 'ProductData.json';
+    var url = 'url to test';
     requester(url, callbacks);
     expect(callbacks.onSuccess).toHaveBeenCalled();
 	XMLHttpRequest.prototype.open = oldOpen;
   });
 ```
 
-All we have done is set the status to 404 instead of 200, so we can take a different route inside the `onreadystatechange` event handler:
+All we have done is add an `onError` function to the `callbacks` object and set the status to 404 instead of 200, so we can take a different route inside the `onreadystatechange` event handler:
 
 ```
 function requester(url, callbacks){
@@ -145,13 +145,7 @@ function requester(url, callbacks){
 
 What if we really want to test the behaviour of the remote server? Then we can issue a real request and wait for the result with `done()`.
 
-```
-function requester(){
-	//we make an XMLHttp request here and store the result
-}
-```
-
-TBD
+The general approach to testing async functions described [here](TestAsyncJS.md) is applicable to http requests.
 
 ## Note
 
