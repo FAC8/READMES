@@ -117,7 +117,7 @@ The principles for testing an error would be similar:
     };
     var url = 'url to test';
     requester(url, callbacks);
-    expect(callbacks.onSuccess).toHaveBeenCalled();
+    expect(callbacks.onError).toHaveBeenCalled();
 	XMLHttpRequest.prototype.open = oldOpen;
   });
 ```
