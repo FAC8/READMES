@@ -96,7 +96,7 @@ function requester(url, callbacks){
 ```
  We do not pass in the actual callbacks, however, but spy functions created by Jasmine `createSpy()`. This allows us to keep track of whether the function was in fact executed by using (among many other possibilities) `expect().toHaveBeenCalled()`.
  
->At the moment, this does not work. It looks like the function given in the `callbacks` object is correctly executed, but for some reason, when that function is a spy function, Jasmine is not recording that the function was executed (if it was). For example, set `callbacks.onSuccess` to `console.log('worked')` and you will see by the console output that the function was indeed executed.
+>At the moment, this does not work. For example, set `callbacks.onSuccess` to `function(){console.log('worked')}` and you will see by the lack of console output that the function was not executed. Why!?!
 
 ##Testing that the correct function is executed if an error is thrown
 
