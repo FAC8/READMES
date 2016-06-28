@@ -84,13 +84,14 @@ eventEmitter.removeListener(‘startClock' tickClock);
 ## What are streams?
 
 Steams are an efficient way of reading and writing files. Streams are objects that allow you to read data from a source or write data to a destination in continuous fashion. There are four types of streams:
-	- Readable - used for read operation
-	- Writable - used for write operation
-	- Duplex - both read and write operation
-	- Transform - duplex stream where the output is computed based on input
+  * Readable - used for read operation
+  * Writable - used for write operation
+  * Duplex - both read and write operation
+  * Transform - duplex stream where the output is computed based on input
 
 Each type of Stream is an EventEmitter. The most commonly used events are:
-	- Data - event is used when there is data to be read
-	- End - event when no more data is available to read
-	- Error - event is triggered when there is an error in receiving or writing data
-	- Finish -  event when all data has been flushed to an underlying system
+
+  * End - event when no more data is available to read
+  * Data - event is used when there is data to be read
+  * Error - event is triggered when there is an error in receiving or writing data
+  * Finish - event when all data has been flushed to an uderlying system.
