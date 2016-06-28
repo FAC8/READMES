@@ -124,3 +124,55 @@ server.on('error', () => {
 Using objects that emit events allows you to choose which functions to call after creating the object.
 You can essentially create call back functions within premade objects!
 It also allows you to easily perform different actions dependent on how many times the event has been emitted.
+
+
+
+
+## Streams
+
+A stream is an eventEmitter with some methods.
+
+Streams can be readable, writable, or both. All streams are instances of EventEmitter.
+
+To access the stream module:
+```javascript
+const stream = require('stream');
+```
+
+In a Node.js based HTTP server, request is a readable stream and response is a writable stream
+The stream module itself is most useful for developer's that are creating new types of stream instances. Developer's who are primarily consuming stream objects will rarely need to use the stream module.
+
+All streams created by Node.js APIs operate exclusively on strings and Buffer objects.
+- READABLE STREAMS let you red data from a source.
+- WRITABLE STREAMS let you write data to a destination.
+- DUPLEX STREAMS let you do both.
+
+A key goal of the stream API, and in particular the stream.pipe() method, is to limit the buffering of data to acceptable levels such that sources and destinations of differing speeds will not overwhelm the available memory.
+Readable streams use the EventEmitter API for notifying application code when data is available to be read off the stream. That available data can be read from the stream in multiple ways.
+
+```javascript
+const myStream = getWritableStreamSomehow();
+myStream.write('some data');
+myStream.write('some more data');
+myStream.end('done writing data');
+```
+
+The 'close' event is emitted when the stream and any of its underlying resources (a file descriptor, for example) have been closed. The event indicates that no more events will be emitted, and no further computation will occur.
+Readable streams effectively operate in one of two modes: flowing and paused.
+
+When in flowing mode, data is read from the underlying system automatically and provided to an application as quickly as possible using events via the EventEmitter interface.
+The readable.read() method should only be called on Readable streams operating in paused mode. In flowing mode, readable.read() is called automatically until the internal buffer is fully drained.
+
+The best way to read data from a stream is to listen to data event and attach a callback. When a chunk of data is available, the readable stream emits a data event and your callback executes.
+
+```javascript
+var fs = require('fs');
+var readableStream = fs.createReadStream('file.txt');
+var data = '';
+readableStream.on('data', function(chunk) {
+data+=chunk;
+});
+readableStream.on('end', function() {
+console.log(data);
+});
+```
