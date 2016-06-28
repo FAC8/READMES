@@ -37,4 +37,60 @@ module.exports.addX = addX;
 These then can be imported into another file/module with require():
 ```javascript
 var misc = require('./misc.js');
+
 ```
+## EventsEmitters
+
+Events must be emitted and, sometimes, listened to. Any object that produces an event is a type of EventEmitter class.
+
+EventEmitter class lies in events module. It is accessibly via following syntax:
+
+```
+ // Import events module
+var events = require('events');
+
+// Create an eventEmitter object
+var eventEmitter = new events.EventEmitter();
+```
+
+**.on** is a listener method, which is attached to the object. Objects can have more than one listener method.
+
+``
+emitter.on(event, function1);
+``
+
+Here is an example attempting to show this below:
+
+```
+//events is a core module which exposes the eventEmitter class
+var events = require('events');
+var eventEmitter = new events.EventEmitter();
+
+var tickClock = function () {
+  console.log(‘tick tock tick tock');
+}
+//tickClock is the listener function
+//it will begin when the 'startClock' event is emitted.
+
+eventEmitter.on('startClock', tickClock);
+
+eventEmitter.emit('startClock');
+// prints ‘tick tock tick tock'
+
+//now we can remove the listener - it is effectively stopping the clock.
+eventEmitter.removeListener(‘startClock' tickClock);
+```
+
+## What are streams?
+
+Steams are an efficient way of reading and writing files. Streams are objects that allow you to read data from a source or write data to a destination in continuous fashion. There are four types of streams:
+	- Readable - used for read operation
+	- Writable - used for write operation
+	- Duplex - both read and write operation
+	- Transform - duplex stream where the output is computed based on input
+
+Each type of Stream is an EventEmitter. The most commonly used events are:
+	- Data - event is used when there is data to be read
+	- End - event when no more data is available to read
+	- Error - event is triggered when there is an error in receiving or writing data
+	- Finish -  event when all data has been flushed to an underlying system
