@@ -23,6 +23,8 @@ The convenience variables ``` __filename and __dirname```, containing the module
 
 To be clear: Node.js wraps a module's code in a wrapper function that provides variables that are specific to the module, including the module and exports objects.  These objects are used to export and require modules.
 
+## Using module.exports and require()
+
 To expose things in a module (ie, to make them available outside the module) we use module.exports and export the variables, functions, etc that we want to expose outside of the module.  For example, a file called misc.js contains:
 
 ```javascript
