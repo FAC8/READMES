@@ -29,8 +29,7 @@ Here is a simple example of the redis keys and string values:
 	
 	
 ##Redis lists 📝
-
-For the purpose of our use, redis lists are like Arrays. 
+Redis lists are linked lists but for the purpose of our use, redis lists are treated like Arrays. 
 
 __Common use cases for lists__
 
