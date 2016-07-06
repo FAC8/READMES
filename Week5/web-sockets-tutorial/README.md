@@ -43,7 +43,7 @@ The first script includes the socket.io library. The second script creates a soc
 
 Now restart the server and refresh the browser. The server should log 'a user connected'.
 
-### Step 4: add disconnect event to server.js
+### Step Four: add disconnect event to server.js
 
 Inside the connect handler add a disconnect handler.
 
@@ -55,7 +55,7 @@ socket.on('disconnect', function(){
 
 Restart the server, and then close a tab. The server should log 'user disconnected'.
 
-### Step 5: send data from the client to the server
+### Step Five: send data from the client to the server
 
 Add jquery for simplictity:
 
@@ -81,7 +81,7 @@ socket.on('chat message', (msg) => {
 });
 ```
 
-### Step 5: broadcast events back to all clients
+### Step Six: broadcast events back to all clients
 
 Update the chat message event handler on the server:
 
@@ -98,7 +98,7 @@ socket.on('chat message', (msg) => {
 });
 ```
 
-Step 6: You're done!
+### Step Seven: You're done!
 
 Two way communication between client and server, which supports multiple clients.
 
