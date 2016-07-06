@@ -64,11 +64,9 @@ redis redis:6379> DEBUG OBJECT my/key
 Value at:0x7f36f2980900 refcount:1 encoding:raw serializedlength:4 lru:463740 lru_seconds_idle:1215660
 ```
 
-Values stored in hashes don’t come with additional metadata. Internally Redis uses simple dictionary structure for storing them.
+Redis has to e.g. store some info for LRU algorithm.
 
-###Lollipop questions:
-- AOF has three sub options. Which one of these is the fastest? Extra points if you can mention the downside of this system. 
-- Explain any of the ways that Redis will be optimized. 
+Values stored in hashes don’t come with additional metadata. Internally Redis uses simple dictionary structure for storing them.
 
 ###Lollipop questions:
 - AOF has three sub options. Which one of these is the fastest? Extra points if you can mention the downside of this system. 
