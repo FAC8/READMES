@@ -1,7 +1,7 @@
 #Mocking Redis
 
 ## Why mock?
-- We do not need to run a redis server process.
+- We do not need to run a redis server process or import any environment variables. We can even create multiple instances of fakeredis and run tests in parallel.
 - We do not need to create a testing database or risk tampering with our actual database.
 - Therefore, mocking is safer and faster.
 
@@ -63,4 +63,6 @@ var client = require("fakeredis").createClient('name', {
 Now go and read the [readme](https://github.com/hdachev/fakeredis)
 
 ##Links
+[DWYL intro to Redis](https://github.com/dwyl/learn-redis)
 [Stackexchange debate about mocking DBs in Node](http://stackoverflow.com/questions/12526160/mocking-database-in-node-js)
+[Some more detailed examples using fakeredis](https://ejosh.co/de/2015/01/node-js-socket-io-and-redis-intermediate-tutorial-server-side/)
