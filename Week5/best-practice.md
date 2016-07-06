@@ -59,13 +59,16 @@ We save 11 characters (11 bytes) which at a large scale can bring us a very larg
 
 You must be aware that every key in Redis comes with some additional metadata. So when you’ll store objects like “key=value” that doesn’t mean you will use 8 bytes per key.
 
-
 ```
 redis redis:6379> DEBUG OBJECT my/key
 Value at:0x7f36f2980900 refcount:1 encoding:raw serializedlength:4 lru:463740 lru_seconds_idle:1215660
 ```
 
 Thanks to hashes we can save some space. 
+
+###Lollipop questions:
+- AOF has three sub options. Which one of these is the fastest? Extra points if you can mention the downside of this system. 
+- Explain any of the ways that Redis will be optimized. 
 
 [Redis CONFIG SET documentation](http://redis.io/commands/config-set)
 
