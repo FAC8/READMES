@@ -1,5 +1,7 @@
 # Folder Structure
 
+If you would like to do the tutorial on this subject, open startHere and look at the disorganised files!  Try and structure the files following the suggestions in this ReadMe.  You have some leeway for personal choice in how you organise the files. When you are done you may look at our answersFolderStructure folder to see how we chose to organise the files.
+
 It is important to structure your files for greater organisation; however, you have a good deal of leeway in how you do so.  There is no absolute standard, but there are some conventions.  We will go over some of those conventions in this ReadMe.
 
 

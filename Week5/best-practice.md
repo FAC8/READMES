@@ -70,6 +70,10 @@ Values stored in hashes don’t come with additional metadata. Internally Redis 
 - AOF has three sub options. Which one of these is the fastest? Extra points if you can mention the downside of this system. 
 - Explain any of the ways that Redis will be optimized. 
 
+###Lollipop questions:
+- AOF has three sub options. Which one of these is the fastest? Extra points if you can mention the downside of this system. 
+- Explain any of the ways that Redis will be optimized. 
+
 [Redis CONFIG SET documentation](http://redis.io/commands/config-set)
 
 [Redis persistence documentation](http://redis.io/topics/persistence)
