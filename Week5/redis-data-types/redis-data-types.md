@@ -1,9 +1,12 @@
-#Redis data structures 📚
-__Redis is not a plain key-value store. It is a data structures server, supporting different kind of values.__
-What this means is that usually key-value stores you associated string keys to string values, in Redis the value is not limited to a simple string, but can also hold more complex data structures. The following is the list of all the data structures supported by Redis, which will be covered separately in this README.
+#Redis data types 📚
+
+__Redis is a fast in memory key-value data store.__
+
+Redis is not a plain key-value store as it supports different kind of values, not only strings.
+Usually key-value stores you associated string keys to string values, in Redis the value is not limited to a simple string, but can also hold more complex data structures. The following is the list of all the data structures supported by Redis, which will be covered separately in this README.
 
 ##Redis Keys 🔑
-(_Not a datatype but good to know_)
+These are the __key__ part of key-value.
 
 
 Redis keys are binary safe, this means that you can use any binary sequence as a key, from a string like "foo" to the content of a JPEG file. The empty string is also a valid key.
@@ -14,7 +17,9 @@ Good to know:
 * It's also not good to write very short and cryptic keys. For example it's much easier to read and understand user:1001:followers than u1001flw
 * Stick to certain naming convention with your keys for clarity.
 
-##Redis strings 🐸
+##Redis Values
+
+###Redis strings 🐸
 
 The Redis String type is the simplest type of value you can associate with a Redis key.
 
@@ -28,7 +33,7 @@ Here is a simple example of the redis keys and string values:
 	> "Hello FAC8"
 	
 	
-##Redis lists 📝
+###Redis lists 📝
 Redis lists are linked lists but for the purpose of our use, redis lists are treated like Arrays. 
 
 __Common use cases for lists__
@@ -50,14 +55,14 @@ You can access redis lists like you do with Arrays, by index :
 	> OK
 	> RPUSH fac8:students Sofia
 	> OK
-	> LRANGE mylist 0 -1 (prints the whole list)
+	> LRANGE mylist 0 -1 # prints the whole list
 	> 1) "Kara"
 	> 2) "Noga"
 	> 3) "Sofia"
 
 When fast access to the middle of a large collection of elements is important, there is a different data structure that can be used, called sorted sets. 
 
-##Redish hashes 🗿
+###Redish hashes 🗿
 Usually hashes are handy to represent objects, actually the number of fields you can put inside a hash has no practical limits (other than available memory), so you can use hashes in many different ways inside your application.
 
 	> HMSET user:1000 username nogainbar birthyear 1984 verified 1
@@ -76,7 +81,7 @@ Usually hashes are handy to represent objects, actually the number of fields you
 	
 It is worth noting that small hashes (i.e., a few elements with small values) are encoded in special way in memory that make them very memory efficient.
 
-##Redish sets 🔣
+###Redish sets 🔣
 
 Redis Sets are unordered collections of strings.
 
@@ -94,7 +99,7 @@ Sets are good for expressing relations between objects. For instance we can easi
 
 A simple way to model this problem is to have a set for every object we want to tag. The set contains the IDs of the tags associated with the object.
 
-##Redis sorted sets 🔡
+###Redis sorted sets 🔡
 
 Sorted sets are a data type which is similar to a mix between a Set and a Hash. Like sets, sorted sets are composed of unique, non-repeating string elements, so in some sense a sorted set is a set as well.
 
@@ -117,7 +122,7 @@ For example adding a few FAC8 student names as sorted set elements, with their y
 	> ZADD hackers 1992 "Sofia Pohjalainen"
 	(integer) 1
 
-##Bitmaps 🤖
+###Bitmaps 🤖
 
 Bitmaps are not an actual data type, but a set of bit-oriented operations defined on the String type. Since strings are binary safe blobs and their maximum length is 512 MB, they are suitable to set up to 232 different bits.
 
@@ -139,7 +144,7 @@ Common user cases for bitmaps are:
 
 * Storing space efficient but high performance boolean information associated with object IDs.
 
-## HyperLogLogs 😹	
+### HyperLogLogs 😹	
 
 A HyperLogLog is a probabilistic data structure used in order to count unique things (technically this is referred to estimating the cardinality of a set).
  
