@@ -1,5 +1,6 @@
 #Redis data structures 📚
-	Redis is not a plain key-value store. It is a data structures server, supporting different kind of values. What this means is that usually key-value stores you associated string keys to string values, in Redis the value is not limited to a simple string, but can also hold more complex data structures. The following is the list of all the data structures supported by Redis, which will be covered separately in this README.
+__Redis is not a plain key-value store. It is a data structures server, supporting different kind of values.__
+What this means is that usually key-value stores you associated string keys to string values, in Redis the value is not limited to a simple string, but can also hold more complex data structures. The following is the list of all the data structures supported by Redis, which will be covered separately in this README.
 
 ##Redis Keys 🔑
 (_Not a datatype but good to know_)
