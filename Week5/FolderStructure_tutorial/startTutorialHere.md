@@ -11,15 +11,13 @@ Your application will be composed of files specific to your application and gene
 
 Start by separating general-purpose files from application-specific resources.
 
-This simple separation makes navigating through your files a lot easier. Place application-specific resources in a folder named 'resources'.  Place libraries and general-purpose files inside the their own folder; one convention is to name that folder 'vendors'.  The vendors folder will hold libraries, plugins, components, etc. That is to say, it holds, not just libraries, but anything that's provided by a third party.  Third party libraries may have their own folder(s) within the vendors folder.  If you have many libraries you put them into a lib folder.  For example, jQuery could have its own jquery folder, etc.
+This simple separation makes navigating through your files a lot easier. Place application-specific resources in a folder named 'resources'. Place libraries and general-purpose files inside the their own folder; one convention is to name that folder 'vendors'. The vendors folder will hold libraries, plugins, components, etc. That is to say, it holds, not just libraries, but anything that's provided by a third party.  Third party libraries may have their own folder(s) within the vendors folder.  If you have many libraries you put them into a lib folder.  For example, jQuery could have its own jquery folder, etc.
 
 You should put node_modules in your .gitignore file. There is no valid reason to do otherwise. In .gitignore you will also place config.env.
 
-Generally, your README.md, .travis.yml, .gitignore, index.js will remain at 
+Generally, your README.md, .travis.yml, .gitignore, index.js will remain at root level.
 
-It is now clear that the files you will be editing will be located in the resources folder.
-
-Chances are that you already group your application files inside folders that correspond to assets such as CSS, Javascript, and images.  You may also have a folder spec for the APIspecs.  These folders will be contained in the resources folder.
+Chances are that you already group your application files inside folders that correspond to assets such as CSS, Javascript, and images.  These folders will be contained in the resources folder.  You may wish to place public files in a public folder.  You may also have an API folder for the APIspecs, which you may wish to place inside an src folder.
 
 The js folder will contain your javaScript code.  The images folder is the place where you should add images that are used directly from the index.html or any other page in your application. This images folder should not be used to host stylesheet-related files. Your CSS code and related images (like background images) should be located inside the css folder.  This allows you to build pages that can easily use different themes and enables your application to be more portable.
 
@@ -28,6 +26,6 @@ The js folder will contain your javaScript code.  The images folder is the place
 
 As a general rule make sure that you use lower case letters in all folder and file names. When using multiple words to name a file or a folder separate them with a hyphen (i.e. my-company-logo-small.png).
 
-Special characters such as underscore will force the folder to float to the top of the alphabetically sorted list.  
+Special characters such as underscore will force the folder to float to the top of the alphabetically sorted list.
 
 Even if you do not choose to use the structure recommended in this article, it is important to stick to a convention. It will increase your productivity and more important it will make the work that you do easy to understand by others.
