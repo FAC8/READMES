@@ -5,7 +5,7 @@ If you would like to do the tutorial on this subject, open startHere and look at
 It is important to structure your files for greater organisation; however, you have a good deal of leeway in how you do so.  There is no absolute standard, but there are some conventions.  We will go over some of those conventions in this ReadMe.
 
 
-Let’s assume you are building an HTML5 application. You may choose to use the root of your server as the main container. However, for this tutorial we will assume that you are going to contain your application in a folder.
+Let’s assume you are building a web application. You may choose to use the root of your server as the main container. However, for this tutorial we will assume that you are going to contain your application in a folder.
 
 Inside the application folder create your application index file (or main entry point).
 
