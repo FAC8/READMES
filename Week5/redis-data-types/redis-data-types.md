@@ -120,8 +120,16 @@ For example adding a few FAC8 student names as sorted set elements, with their y
 	(integer) 1
 	> ZADD students 1983 "Troy Maeder"
 	(integer) 1
-	> ZADD hackers 1992 "Sofia Pohjalainen"
+	> ZADD students 1992 "Sofia Pohjalainen"
 	(integer) 1
+	> ZRANGE students 0 -1
+	1) "Troy Maeder"
+	2) "Rich Warren"
+	3) "Sofia Pohjalainen"
+	4) "Emma Deacon"
+
+
+Because Sofia and Rich have the same "score" (birthyear) they get sorted alphabetically. Otherwise they get sorted from smallest score value to largest score value by deafult.
 
 ###Bitmaps 🤖
 
