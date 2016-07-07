@@ -67,6 +67,8 @@ When fast access to the middle of a large collection of elements is important, t
 ###Redish hashes 🗿
 Usually hashes are handy to represent objects, actually the number of fields you can put inside a hash has no practical limits (other than available memory), so you can use hashes in many different ways inside your application.
 
+A hash with a few fields (where few means up to one hundred or so) is stored in a way that takes very little space, so you can store millions of objects in a small Redis instance.
+
 	> HMSET user:1000 username nogainbar birthyear 1984 verified 1
 	OK
 	> HGET user:1000 username
@@ -87,8 +89,11 @@ It is worth noting that small hashes (i.e., a few elements with small values) ar
 
 Redis Sets are unordered collections of strings.
 
+Redis Sets have the desirable property of not allowing repeated members. Adding the same element multiple times will result in a set having a single copy of this element. Practically speaking this means that adding a member does not require a check if exists then add operation.
+Sets are good for expressing relations between objects. For instance we can easily use sets in order to implement tags.
+
 	> SADD myset hello people from fac8
-	(integer) 3
+	(integer) 4
 	> SMEMBERS myset
 	1) "fac8"
 	2) "people"
@@ -97,17 +102,11 @@ Redis Sets are unordered collections of strings.
 	
 Here we have added three elements to my set and told Redis to return all the elements. As you can see they are not sorted -- Redis is free to return the elements in any order at every call, since there is no contract with the user about element ordering.
 
-Sets are good for expressing relations between objects. For instance we can easily use sets in order to implement tags.
-
-A simple way to model this problem is to have a set for every object we want to tag. The set contains the IDs of the tags associated with the object.
-
 ###Redis sorted sets 🔡
 
-Sorted sets are a data type which is similar to a mix between a Set and a Hash. Like sets, sorted sets are composed of unique, non-repeating string elements, so in some sense a sorted set is a set as well.
+Redis Sorted Sets are, similarly to Redis Sets, non repeating collections of Strings. The difference is that every member of a Sorted Set is associated with score, that is used in order to take the sorted set ordered, from the smallest to the greatest score. While members are unique, scores may be repeated.
 
-
-However while elements inside sets are not ordered, every element in a sorted set is associated with a floating point value, called the score (this is why the type is also similar to a hash, since every element is mapped to a value).
-Moreover, elements in a sorted sets are taken in order (so they are not ordered on request, order is a peculiarity of the data structure used to represent sorted sets). They are ordered according to the following rule:
+Elements in a sorted sets are taken in order and they are ordered according to the following rule:
 
 * If A and B are two elements with a different score, then A > B if A.score is > B.score.
 
@@ -115,7 +114,7 @@ Moreover, elements in a sorted sets are taken in order (so they are not ordered 
 
 For example adding a few FAC8 student names as sorted set elements, with their year of birth as "score".
 
-	> ZADD students 1994 "Emma Deacon"
+	> ZADD students 1993 "Emma Deacon"
 	(integer) 1
 	> ZADD students 1992 "Rich Warren"
 	(integer) 1
