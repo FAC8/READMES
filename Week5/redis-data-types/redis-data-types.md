@@ -171,3 +171,151 @@ __An example of use__ case for this data structure is counting unique queries pe
 3. Example of when you could use a bitmap.
 
 
+##Redis command cheat sheet
+	
+###SET
+will store the key into the db:
+
+SET server:name "fido"
+
+###GET
+will get the value of serer:name 
+
+GET server:name => "fido"
+
+###DEL
+Delete a given key - when delete and then GET the value, 1 equals true, meaning: it was deleted. if DEL again, it will give you 0 but that means that is a falsy value.
+
+###SETNX
+
+SET-if-not-exist
+will set a key only if doesnt exist already
+
+###INCR
+
+automatically increment a number stored at a given key
+
+###EXPIRE
+
+set the key to exist only for a certain amount of time
+
+###TTL
+
+will tell how long there is until its expired
+(-2 means that the key doesnt exist anymore)
+(-1 means it will never exipres, if you set TTL to -1 it will never exipre, but that will be the default if you dont set a specific TTL to it.)
+
+
+##LISTS
+
+have a specific order
+
+###RPUSH
+
+puts the new value at the end of a list
+
+###LPUSH
+
+puts the value at the start of the list
+
+###LRANGE
+
+gives you as many bits of the list that you want:
+
+LRANGE friends 0 -1 => 1)'sam'   2)'alice'   3)'bob'
+LRANGE friends 0 1 => 1)'sam'   2)'alice'
+LRANGE friends 1 2 => 1)'alice'  2)'bob'
+
+###LLEN
+
+will give you the current length of list
+
+###LPOP
+
+removes the first element from the list and returns it.
+
+###RPOP
+
+removes the last element from the list and returns it
+
+##SETS
+
+dont have a specific order and the elements can onlt appear once
+
+###SADD
+
+will add the given value to the set
+
+###SREM
+REMOVES THE GIVEN VALUE FROM THE SET
+
+will remove the given value to the set
+
+###SISMEMBER
+
+will test if the value is in the set. retunr 1 if its there and 0 if not.
+
+###SMEMBERS
+
+return the list of the members in set
+
+###SUNION
+
+combines two or more sets and returns the list of elements.
+
+
+##SORTED SETS
+
+Sorted set is like a regular set but has a score associated to each value (so that you can order the set)
+
+###ZADD
+
+will add a value to the set with a score:
+
+    ZADD hackers 1940 "Alan Kay"
+    ZADD hackers 1906 "Grace Hopper"
+    ZADD hackers 1953 "Richard Stallman"
+    ZADD hackers 1965 "Yukihiro Matsumoto"
+    ZADD hackers 1916 "Claude Shannon"
+    ZADD hackers 1969 "Linus Torvalds"
+    ZADD hackers 1957 "Sophie Wilson"
+    ZADD hackers 1912 "Alan Turing"
+    	
+    	
+###ZRANGE
+
+get a range of values 
+
+    ZRANGE hackers 2 4 => 1) "Claude Shannon", 2) "Alan Kay", 3) "Richard Stallman"
+
+
+##HASHES
+
+###HSET
+will set the data
+
+ 	HSET user:1000 name "John Smith"
+    HSET user:1000 email "john.smith@example.com"
+    HSET user:1000 password "s3cret" 
+    
+or
+
+	HMSET user:1001 name "Mary Jones" password "hidden" email "mjones@example.com"
+    
+###HGETALL
+will get all the data
+
+###HGET
+will get a single value from the Hash table
+
+  	HGET user:1001 name => "Mary Jones"
+  	
+Numerical values in hash fields are handled exactly the same as in simple strings and there are operations to increment this value in an atomic way.
+
+  	HSET user:1000 visits 10
+    HINCRBY user:1000 visits 1 => 11
+    HINCRBY user:1000 visits 10 => 21
+    HDEL user:1000 visits
+    HINCRBY user:1000 visits 1 => 1
+
+
