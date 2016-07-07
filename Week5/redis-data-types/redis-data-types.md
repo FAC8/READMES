@@ -156,6 +156,16 @@ HyperLogLogs in Redis, while technically a different data structure, is encoded 
 
 __An example of use__ case for this data structure is counting unique queries performed by users in a search form every day.
 
+##Resources 🛠
 
+* [Simple introduction to Redis data types] (https://matt.sh/introduction-to-redis-data-types)
+* [Official Redis documentation about the data types] (http://redis.io/topics/data-types)
+* [Interesting debate about sets vs hashes](http://stackoverflow.com/questions/13557075/redis-set-vs-hash)
+
+## 🎉 Pop Quiz! 🎊
+
+1. What datatypes can Redis keys be?
+2. Do redis sets have unique indexes?
+3. Example of when you could use a bitmap.
 
 
