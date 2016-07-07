@@ -57,7 +57,7 @@ Is synchronous and sets a key:value pair of `"jakub":"czech"` in the fakeClient 
 ```javascript
   fakeClient.get("jakub", callback(err, reply))
 ```
-Gets the value associated with the key,`"jakub"` and takes a callback as its second parameter. The callback is passed either an error or successful response (called reply by convention) asynchronously so if you don't nest your assertion within this callback, the assertion will take place before the response from the `.get` method is ready!! These methods are asynchronous because it can take some time to query the database and get the answer back.
+Gets the value associated with the key,`"jakub"` and takes a callback as its second parameter. The callback is passed either an error or successful response (called reply by convention) asynchronously so if you don't nest your assertion within this callback, the assertion will take place before the response from the `.get` method is ready!! These methods are asynchronous because it can take some time to query the database and get the answer back and you wouldn't want your programme to be held up for this operation.
 
 * The assertion:
 ```javascript
@@ -80,3 +80,8 @@ So any database emulation layer will necessarily implement the entire database (
 Therefore, in my opinion, the only way to correctly test your code is to interface it with the real database."
 
 [Stackoverflow discussion on database testing](http://stackoverflow.com/questions/12526160/mocking-database-in-node-js)
+
+## Lolipop questions
+
+1. Which of the methods `.get` or `.set` needs to have the assertion placed within the callback and why are some redis client methods asynchronous?
+2. Name a drawback of using a mock database for testing your code.
