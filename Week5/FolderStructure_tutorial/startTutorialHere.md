@@ -31,3 +31,7 @@ As a general rule make sure that you use lower case letters in all folder and fi
 Special characters such as underscore will force the folder to float to the top of the alphabetically sorted list.
 
 Even if you do not choose to use the structure recommended in this article, it is important to stick to a convention. It will increase your productivity and more important it will make the work that you do easy to understand by others.
+
+### Questions:
+
+Explain how you prefer to create your folder structure and give your reasons why!
