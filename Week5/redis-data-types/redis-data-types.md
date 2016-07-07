@@ -34,7 +34,8 @@ Here is a simple example of the redis keys and string values:
 	
 	
 ###Redis lists 📝
-Redis lists are linked lists but for the purpose of our use, redis lists are treated like Arrays. 
+
+Redis Lists are simply lists of strings, sorted by insertion order. It is possible to add elements to a Redis List pushing new elements on the head (on the left) or on the tail (on the right) of the list.
 
 __Common use cases for lists__
 
@@ -42,7 +43,8 @@ Lists are useful for a number of tasks, two very representative use cases are th
 
 * Remember the latest updates posted by users into a social network.
 
-* Communication between processes, using a consumer-producer pattern where the producer pushes items into a list, and a consumer (usually a worker) consumes those items and executed actions.
+* Model a timeline in a social network, using LPUSH in order to add new elements in the user time line, and using LRANGE in order to retrieve a few of recently inserted items.
+
 * Every time a user posts a new photo, we add its ID into a list with LPUSH.
 
 * When users visit the home page, we use LRANGE 0 9 in order to get the latest 10 posted items.
