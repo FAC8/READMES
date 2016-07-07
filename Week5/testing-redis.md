@@ -2,7 +2,7 @@
 
 ## Testing your database
 
-Your database can be accessed by your testing suite by requiring that module. It is possible to test your code's connection to your redis database by creating a client and testing to see if it is connecting.
+Require the redis module into your testing suite to start testing. For example, as below you can test your connection to the redis server.
 
 ```javascript
 const tape = require("tape");
@@ -21,11 +21,11 @@ tape("test to see if connection is made to server", t => {
 
 ```
 
-However, if you want to start testing logic, you don't necessarily want to start adding and removing things from your real database. For this reason, when testing it is very common to set up a mock database which can mimmick your real server. A common npm module for this is fakeredis and it is discussed in [this](http://stackoverflow.com/questions/12526160/mocking-database-in-node-js) readme.
+But testing your code's logic doesn't necessarily require a connection to your real database and you don't want to add/remove real data so as discussed in [this](http://stackoverflow.com/questions/12526160/mocking-database-in-node-js) readme, it is common to use a mock database.
 
 ## Testing your mock database
 
-Start by requiring fakeredis and creating an instance of the fake client using the `.createClient` method. The client object contains the database and the methods for interacting with it. This has almost all of the same methods as a normal redis client so you can use the same syntax to interact with it.
+Start by requiring the fakeredis npm module and creating an instance of the fake client using the `.createClient` method. The client object contains the database and the methods for interacting with it. This has almost all of the same methods as a normal redis client so you can use the same syntax to interact with it.
 
 ```javascript
 const fakeredis = require('fakeredis');
@@ -57,7 +57,7 @@ Is synchronous and sets a key:value pair of `"jakub":"czech"` in the fakeClient 
 ```javascript
   fakeClient.get("jakub", callback(err, reply))
 ```
-Gets the value associated with the key, which is given as the first parameter, `"jakub"` and takes a callback as its second parameter. The callback is passed either an error or successful response (called reply by convention) asynchronously i.e. if you don't nest your assertion within this callback, the assertion will take place before the response from the `.get` method is ready!! These methods are asynchronous because it can take some time to query the database and get the answer back.
+Gets the value associated with the key,`"jakub"` and takes a callback as its second parameter. The callback is passed either an error or successful response (called reply by convention) asynchronously so if you don't nest your assertion within this callback, the assertion will take place before the response from the `.get` method is ready!! These methods are asynchronous because it can take some time to query the database and get the answer back.
 
 * The assertion:
 ```javascript
