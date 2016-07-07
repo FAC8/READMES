@@ -63,6 +63,19 @@ var client = require("fakeredis").createClient('name', {
 Now go and read the [readme](https://github.com/hdachev/fakeredis)
 
 ##Links
+
 [DWYL intro to Redis](https://github.com/dwyl/learn-redis)
-[Stackexchange debate about mocking DBs in Node](http://stackoverflow.com/questions/12526160/mocking-database-in-node-js)
+
 [Some more detailed examples using fakeredis](https://ejosh.co/de/2015/01/node-js-socket-io-and-redis-intermediate-tutorial-server-side/)
+
+####To mock or not to mock? 
+
+[Stackexchange](http://stackoverflow.com/questions/12526160/mocking-database-in-node-js)
+
+[Stackexchange](http://stackoverflow.com/questions/3111645/mock-objects-vs-test-database)
+
+[Stackexchange](http://stackoverflow.com/questions/310307/mocking-vs-test-db)
+
+[Stackexchange](http://programmers.stackexchange.com/questions/206539/unit-tests-and-databases-at-which-point-do-i-actually-connect-to-the-database)
+
+[8th light](https://blog.8thlight.com/uncle-bob/2014/05/10/WhenToMock.html)
