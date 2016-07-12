@@ -34,7 +34,8 @@ Here is a simple example of the redis keys and string values:
 	
 	
 ###Redis lists 📝
-Redis lists are linked lists but for the purpose of our use, redis lists are treated like Arrays. 
+
+Redis Lists are simply lists of strings, sorted by insertion order. It is possible to add elements to a Redis List pushing new elements on the head (on the left) or on the tail (on the right) of the list.
 
 __Common use cases for lists__
 
@@ -42,7 +43,8 @@ Lists are useful for a number of tasks, two very representative use cases are th
 
 * Remember the latest updates posted by users into a social network.
 
-* Communication between processes, using a consumer-producer pattern where the producer pushes items into a list, and a consumer (usually a worker) consumes those items and executed actions.
+* Model a timeline in a social network, using LPUSH in order to add new elements in the user time line, and using LRANGE in order to retrieve a few of recently inserted items.
+
 * Every time a user posts a new photo, we add its ID into a list with LPUSH.
 
 * When users visit the home page, we use LRANGE 0 9 in order to get the latest 10 posted items.
@@ -65,6 +67,8 @@ When fast access to the middle of a large collection of elements is important, t
 ###Redish hashes 🗿
 Usually hashes are handy to represent objects, actually the number of fields you can put inside a hash has no practical limits (other than available memory), so you can use hashes in many different ways inside your application.
 
+A hash with a few fields (where few means up to one hundred or so) is stored in a way that takes very little space, so you can store millions of objects in a small Redis instance.
+
 	> HMSET user:1000 username nogainbar birthyear 1984 verified 1
 	OK
 	> HGET user:1000 username
@@ -85,8 +89,11 @@ It is worth noting that small hashes (i.e., a few elements with small values) ar
 
 Redis Sets are unordered collections of strings.
 
+Redis Sets have the desirable property of not allowing repeated members. Adding the same element multiple times will result in a set having a single copy of this element. Practically speaking this means that adding a member does not require a check if exists then add operation.
+Sets are good for expressing relations between objects. For instance we can easily use sets in order to implement tags.
+
 	> SADD myset hello people from fac8
-	(integer) 3
+	(integer) 4
 	> SMEMBERS myset
 	1) "fac8"
 	2) "people"
@@ -95,17 +102,11 @@ Redis Sets are unordered collections of strings.
 	
 Here we have added three elements to my set and told Redis to return all the elements. As you can see they are not sorted -- Redis is free to return the elements in any order at every call, since there is no contract with the user about element ordering.
 
-Sets are good for expressing relations between objects. For instance we can easily use sets in order to implement tags.
-
-A simple way to model this problem is to have a set for every object we want to tag. The set contains the IDs of the tags associated with the object.
-
 ###Redis sorted sets 🔡
 
-Sorted sets are a data type which is similar to a mix between a Set and a Hash. Like sets, sorted sets are composed of unique, non-repeating string elements, so in some sense a sorted set is a set as well.
+Redis Sorted Sets are, similarly to Redis Sets, non repeating collections of Strings. The difference is that every member of a Sorted Set is associated with score, that is used in order to take the sorted set ordered, from the smallest to the greatest score. While members are unique, scores may be repeated.
 
-
-However while elements inside sets are not ordered, every element in a sorted set is associated with a floating point value, called the score (this is why the type is also similar to a hash, since every element is mapped to a value).
-Moreover, elements in a sorted sets are taken in order (so they are not ordered on request, order is a peculiarity of the data structure used to represent sorted sets). They are ordered according to the following rule:
+Elements in a sorted sets are taken in order and they are ordered according to the following rule:
 
 * If A and B are two elements with a different score, then A > B if A.score is > B.score.
 
@@ -113,14 +114,22 @@ Moreover, elements in a sorted sets are taken in order (so they are not ordered 
 
 For example adding a few FAC8 student names as sorted set elements, with their year of birth as "score".
 
-	> ZADD students 1994 "Emma Deacon"
+	> ZADD students 1993 "Emma Deacon"
 	(integer) 1
 	> ZADD students 1992 "Rich Warren"
 	(integer) 1
 	> ZADD students 1983 "Troy Maeder"
 	(integer) 1
-	> ZADD hackers 1992 "Sofia Pohjalainen"
+	> ZADD students 1992 "Sofia Pohjalainen"
 	(integer) 1
+	> ZRANGE students 0 -1
+	1) "Troy Maeder"
+	2) "Rich Warren"
+	3) "Sofia Pohjalainen"
+	4) "Emma Deacon"
+
+
+Because Sofia and Rich have the same "score" (birthyear) they get sorted alphabetically. Otherwise they get sorted from smallest score value to largest score value by deafult.
 
 ###Bitmaps 🤖
 
@@ -156,6 +165,164 @@ HyperLogLogs in Redis, while technically a different data structure, is encoded 
 
 __An example of use__ case for this data structure is counting unique queries performed by users in a search form every day.
 
+##Resources 🛠
 
+* [Simple introduction to Redis data types] (https://matt.sh/introduction-to-redis-data-types)
+* [Official Redis documentation about the data types] (http://redis.io/topics/data-types)
+* [Interesting debate about sets vs hashes](http://stackoverflow.com/questions/13557075/redis-set-vs-hash)
+
+## 🎉 Pop Quiz! 🎊
+
+1. What datatypes can Redis keys be?
+2. Do redis sets have unique indexes?
+3. Example of when you could use a bitmap.
+
+
+##Redis command cheat sheet
+	
+###SET
+will store the key into the db:
+
+SET server:name "fido"
+
+###GET
+will get the value of serer:name 
+
+GET server:name => "fido"
+
+###DEL
+Delete a given key - when delete and then GET the value, 1 equals true, meaning: it was deleted. if DEL again, it will give you 0 but that means that is a falsy value.
+
+###SETNX
+
+SET-if-not-exist
+will set a key only if doesnt exist already
+
+###INCR
+
+automatically increment a number stored at a given key
+
+###EXPIRE
+
+set the key to exist only for a certain amount of time
+
+###TTL
+
+will tell how long there is until its expired
+(-2 means that the key doesnt exist anymore)
+(-1 means it will never exipres, if you set TTL to -1 it will never exipre, but that will be the default if you dont set a specific TTL to it.)
+
+
+##LISTS
+
+have a specific order
+
+###RPUSH
+
+puts the new value at the end of a list
+
+###LPUSH
+
+puts the value at the start of the list
+
+###LRANGE
+
+gives you as many bits of the list that you want:
+
+LRANGE friends 0 -1 => 1)'sam'   2)'alice'   3)'bob'
+LRANGE friends 0 1 => 1)'sam'   2)'alice'
+LRANGE friends 1 2 => 1)'alice'  2)'bob'
+
+###LLEN
+
+will give you the current length of list
+
+###LPOP
+
+removes the first element from the list and returns it.
+
+###RPOP
+
+removes the last element from the list and returns it
+
+##SETS
+
+dont have a specific order and the elements can onlt appear once
+
+###SADD
+
+will add the given value to the set
+
+###SREM
+REMOVES THE GIVEN VALUE FROM THE SET
+
+will remove the given value to the set
+
+###SISMEMBER
+
+will test if the value is in the set. retunr 1 if its there and 0 if not.
+
+###SMEMBERS
+
+return the list of the members in set
+
+###SUNION
+
+combines two or more sets and returns the list of elements.
+
+
+##SORTED SETS
+
+Sorted set is like a regular set but has a score associated to each value (so that you can order the set)
+
+###ZADD
+
+will add a value to the set with a score:
+
+    ZADD hackers 1940 "Alan Kay"
+    ZADD hackers 1906 "Grace Hopper"
+    ZADD hackers 1953 "Richard Stallman"
+    ZADD hackers 1965 "Yukihiro Matsumoto"
+    ZADD hackers 1916 "Claude Shannon"
+    ZADD hackers 1969 "Linus Torvalds"
+    ZADD hackers 1957 "Sophie Wilson"
+    ZADD hackers 1912 "Alan Turing"
+    	
+    	
+###ZRANGE
+
+get a range of values 
+
+    ZRANGE hackers 2 4 => 1) "Claude Shannon", 2) "Alan Kay", 3) "Richard Stallman"
+
+
+##HASHES
+
+###HSET
+will set the data
+
+ 	HSET user:1000 name "John Smith"
+    HSET user:1000 email "john.smith@example.com"
+    HSET user:1000 password "s3cret" 
+    
+or
+
+	HMSET user:1001 name "Mary Jones" password "hidden" email "mjones@example.com"
+    
+###HGETALL
+will get all the data
+
+###HGET
+will get a single value from the Hash table
+
+  	HGET user:1001 name => "Mary Jones"
+  	
+Numerical values in hash fields are handled exactly the same as in simple strings and there are operations to increment this value in an atomic way.
+
+  	HSET user:1000 visits 10
+    HINCRBY user:1000 visits 1 => 11
+    HINCRBY user:1000 visits 10 => 21
+    HDEL user:1000 visits
+    HINCRBY user:1000 visits 1 => 1
 
 

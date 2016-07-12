@@ -1,4 +1,7 @@
 ## REDIS PERSISTENCE
+
+Persistence in computer science refers to object and process characteristics that continue to exist even after the process that created it ceases or the machine it is running on is powered off. When an object or state is created and needs to be persistent, it is saved in a non-volatile storage location, like a hard drive, versus a temporary file or volatile random access memory (RAM).
+
 ####RDB
 RDB allows to take snapshots at certain points in time so we can save our data. You can alter how often Redis does this by changing redis.conf file through the Redis CLI like so: 
 
