@@ -5,6 +5,7 @@ Imagine, if you will, the relational database as Microsoft Excel programme. You 
 A non-relational database just stores data without explicit and structured mechanisms to link data from different tables (or buckets) to one another.
 
 ** Data analysis, querying data**
+
 However, in a distributed system, joining the tables may be a very challenging task. Further, all data must be converted into tables. This is often difficult and may slow down the workflow significantly. 
 
 However, if one of the primary purposes of your programme is data analysis, you will probably be best off using the relational database. If you want your application to handle a lot of complicated querying, database transactions and routine analysis of data, you’ll probably want to stick with a relational database.
@@ -12,6 +13,7 @@ However, if one of the primary purposes of your programme is data analysis, you 
 Data in an application has value to the business that goes beyond the insert-read-update-delete cycle of a typical Web application. Businesses mine information in corporate databases to improve their efficiency and competitiveness, and business intelligence (BI) is a key IT issue for all medium to large companies.
 
 **Modifying database**
+
 But it's hard to add new content to a relational database. Or new features. Or new attributes. Not without disrupting performance or taking your database offline.
 
 With non-relational databases you can store any type of content. Incorporate any kind of data in a single database.Data now includes rich data types – tweets, videos, podcasts, animated gifs – which are hard, if not impossible, to store in a relational database. 
@@ -22,6 +24,7 @@ NoSQL databases offer few facilities for ad-hoc query and analysis. Even a simpl
 There are companies that work on solutions to this. For instance Quest Software has developed a product — Toad for Cloud Databases — that can provide ad-hoc query capabilities to a variety of NoSQL databases.
 
 **Cost and code**
+
 In non-relational databases like Mongo, there are no joins like there would be in relational databases. This means you need to perform multiple queries and join the data manually within your code -- and that can get very ugly, very fast.
 
 Of course, everything comes at a cost. Maintenance of RDBMS (relational database management system) is not easy to maintain and requires a lot of skilled and highly trained database administrators. It turns out, however, that even the non-relational databases are not as easily managed as may seem. 
