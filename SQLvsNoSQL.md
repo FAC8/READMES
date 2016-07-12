@@ -4,7 +4,7 @@ Imagine, if you will, the relational database as Microsoft Excel programme. You 
 
 A non-relational database just stores data without explicit and structured mechanisms to link data from different tables (or buckets) to one another.
 
-** Data analysis, querying data**
+**Data analysis, querying data**
 
 However, in a distributed system, joining the tables may be a very challenging task. Further, all data must be converted into tables. This is often difficult and may slow down the workflow significantly. 
 
