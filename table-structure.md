@@ -13,16 +13,16 @@ A primary key is a value that is unique for every record in a table, and so prov
 Why do we need a primary key? Suppose we have two tables in our database: one holds information on every customer (name, address, telephone, etc.), another holds information about that customer's account (subscription plan, personalised options, etc.). These tables are related – every customer has, as well as the data in the customer table, an account which is uniquely theirs. The primary key allows us to keep track of which records are related.
 
 CUSTOMERS TABLE
-| key | name | address | telephone |
-|-----|------|---------|-----------|
-| 27  | Sam  | Camden  | 01234...  |
-| 28  | Sam  | Dundee  | 01949...  |
+key | name | address | telephone 
+-----|------|---------|-----------
+ 27  | Sam  | Camden  | 01234...  
+ 28  | Sam  | Dundee  | 01949...  
 
 ACCOUNTS TABLE
-| key | customer | name | plan | time_left |
-|-----|----------|------|------|-----------|
-| 13  | 27       | Sam  | free | 5 months  |
-| 14  | 28		 | Sam  | paid | 7 months  |
+ key | customer | name | plan | time_left 
+-----|----------|------|------|-----------
+ 13  | 27       | Sam  | free | 5 months  
+ 14  | 28		 | Sam  | paid | 7 months  
 
 Now suppose we are talking to a customer and want to find out what account plan they are on. Since more than one customer is called 'Sam', we cannot use the name to pull out the appropriate record from the account table. With the primary key, we can find the record in the account table that holds that key in its customer column, and be sure that this record is related to the same customer.
 
@@ -30,11 +30,7 @@ The column in a table holding the primary of another table is called the foreign
 
 ## Joining tables
 
-Suppose we wish to extract all data about a customer and the account of that customer. We can 'join' the tables using the primary key.
-
-SELECT
-
-Here we are joining records in the table `orders` to `customers` where the values of the `key` and `customer` fields are the same. We can perform exactly the same task more idiomatically by using the `JOIN` command:
+Suppose we wish to extract all data about a customer and the account of that customer. We can 'join' the tables using the primary key. Here we are joining records in the table `orders` to `customers` where the values of the `key` and `customer` fields are the same:
 
 ```SQL
 SELECT * FROM customers
