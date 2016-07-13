@@ -32,25 +32,25 @@ The column in a table holding the primary of another table is called the foreign
 
 ## Joining tables
 
-Suppose we wish to extract all data about a customer and the account of that customer. We can 'join' the tables using the primary key. Here we are joining records in the table `orders` to `customers` where the values of the `key` and `customer` fields are the same:
+Suppose we wish to extract all data about a customer and the account of that customer. We can 'join' the tables using the primary key. Here we are joining records in the table `accounts` to `customers` where the values of the `key` and `customer` fields are the same:
 
 ```SQL
 SELECT * FROM customers
-    JOIN orders ON key=customer
+    JOIN accounts ON key=customer
 ```
 
 This query will return every record. If we just want the addresses and times left for a specific customer name we can use
 
 ```SQL
-SELECT address, time_left FROM customers
-    JOIN orders ON key=customer
+SELECT address, time_left FROM accounts
+    JOIN accounts ON key=customer
     	WHERE name='Sam'
 ```
 The argument of `ON` (`key=customer`) is called the **predicate** of the join.
 
 ##Normalisation
 
-Note that if we join our `customer` and `account` tables, we will have two columns containing information about customer names. Normalisation is the process of eliminating such redundancy. Not only does this reduce the size of the database, but, more importantly, it ensures that if we need to change data, we need do so at only one location. With the current structure, if 'Sam' changes his name to 'Salmon', we will need to update two tables. If the name were stored in one table and only referred to in others by its primary key, then we would only need to update a single table.
+Note that if we join our `customers` and `accounts` tables, we will have two columns containing information about customer names. Normalisation is the process of eliminating such redundancy. Not only does this reduce the size of the database, but, more importantly, it ensures that if we need to change data, we need do so at only one location. With the current structure, if 'Sam' changes his name to 'Salmon', we will need to update two tables. If the name were stored in one table and only referred to in others by its primary key, then we would only need to update a single table.
 
 The inventor of the relational model of database design, Edgar Codd, identified the following goals of normalisation:
 
