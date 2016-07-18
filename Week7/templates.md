@@ -7,7 +7,7 @@ Some examples of templating libraries are AngularJS, Backbone.js, Ember.js, Hand
 
 ```html
 <html>
-  <body> 
+  <body>
     <h1>{{title}}</h1>
     <div>{{info}}</div>
   </body>
@@ -16,7 +16,7 @@ Some examples of templating libraries are AngularJS, Backbone.js, Ember.js, Hand
 
 ## Stages of rendering a template
 
-To render a template we need three things: 
+To render a template we need three things:
 
 1. The html, as in the example above
 2. Some data to render into the template. For example:
@@ -90,7 +90,7 @@ And render it with `reply.view('index', data)` (remember, the first argument of 
 
 ## Set up templating in Hapi
 
-For Hapi to render the templates correctly, it needs to know various things: 
+For Hapi to render the templates correctly, it needs to know various things:
 
 1. The template engine to use
 2. The location of the template files to be passed to `server.view`
@@ -110,3 +110,52 @@ server.views({
     layout: 'default',			//location of defaul layout
 });
 ```
+
+### Handlebar Helpers
+
+Helpers allows us to execute complex logic, which are the conditional and loops for executing simple logic.
+
+#### If Helper: {{#if}}
+
+If helper works just like if statement, except it does not accept any conditional logic. It checks for truthy values, and to do this we the userActive property is a truthy. If it is, the block is rendered.
+
+```<div class="user-data">​
+{{#if userActive}}​
+Welcome, {{firstName}}
+{{/if}}
+​</div>```
+
+#### Unless Helper: {{#unless}}
+
+As an alternative to {{else}}, you can use the unless block helper. The content between the unless block will only be rendereed if the unless expression equates to a falsy value. To implement this helper, we replace the if and the else blocks with just the unless block.
+
+```<div class="user-data">​
+{{#unless userLoggedIn}}​
+Please Log in.
+{{/unless}} </div>```
+
+#### With Helper: {{#with}}
+The with helper allows us to target a specific property of the project.
+Take the following example:
+
+```var shoesData = {groupName:"Celebrities", celebrity:{firstName:"Mike", lastName:"Alexander" } };```
+
+We can use the with block to target the groupName property to access its values
+
+```<script id="shoe-template" type="x-handlebars-template">​
+ {{groupName}} Group
+   {{#with celebrity}}​
+    <li>{{firstName}} {{lastName}}</li>​
+    {{/with}}
+​</script>
+``` 
+#### Else: {{else}}
+{{else}}, that can be used with any block helper to represent what should be output if the given expression evaluates to a falsy value.
+
+```<div class="user-data">​
+{{#if userLoggedIn}}​
+Welcome, {{firstName}}
+{{else}}
+Please Log in.
+{{/if}}
+​</div>```
