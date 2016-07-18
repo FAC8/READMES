@@ -1,0 +1,15 @@
+{
+  "name": "joi-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "joi": "^9.0.1",
+    "tape": "^4.6.0"
+  }
+}
