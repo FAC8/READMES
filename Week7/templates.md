@@ -119,7 +119,7 @@ server.views({
     path: './views',			  //location of templates relative to relativeTo path
     layout: true,				  //enables layouts
     layoutPath: './views/layout', //location of layouts relative to relativeTo path.
-    layout: './default',		  //location of defaul layout relative to layoutPath
+    layout: './default',		  //location of default layout relative to layoutPath
 });
 ```
 
