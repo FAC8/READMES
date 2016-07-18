@@ -3,7 +3,7 @@
 ## What is a template?
 Templating is a way of injecting variable data into fixed-format re-usable html files – templates.
 
-Some examples of templating libraries are AngularJS, Backbone.js, Ember.js, Handlebars.js, Vue.js and Mustache.js. Mustache and Handlebars seem to be the favourite choices to start with. Both these libraries derive their name from way in which variable data is inserted into the template, with double curly brackets:
+Some examples of templating libraries are AngularJS, Backbone.js, Ember.js, Handlebars.js, Vue.js and Mustache.js. Mustache and Handlebars seem to be the favourite choices to start with. Both these libraries derive their name from way in which variable data is inserted into the template, with double or triple curly brackets:
 
 ```html
 <html>
@@ -19,7 +19,7 @@ Some examples of templating libraries are AngularJS, Backbone.js, Ember.js, Hand
 To render a template we need three things: 
 
 1. The html, as in the example above
-2. Some data to render into the template. For example:
+2. Some data to render into the template (often called *context*). For example:
 
 ```javascript
 data = {
@@ -55,7 +55,7 @@ views/
     index.html
 server.js
 ```
-The default layout is used for every view. That is, templates in the `view` folder will displayed *inside* the default layout. These templates will be inserted wherever we position a special tag called `content`. Here is an example `default.html`. Also, note how we insert a comment with a `!`:
+The default layout is used for every view. That is, templates in the `view` folder will displayed *inside* the default layout. These templates will be inserted wherever we position a special tag called `content`. Here is an example `default.html`.
 
 ```html
 <html>
@@ -67,6 +67,7 @@ The default layout is used for every view. That is, templates in the `view` fold
 </body>
 </html>
 ```
+Note how we insert a comment with a `!`. Also note that we are using triple curly brackets here because we want to insert valid html (rendered from another template). With double curly brackets rendered data is automatically URI encoded.
 
 So now if define a template called `index.html` as follows:
 
@@ -90,7 +91,14 @@ And render it with `reply.view('index', data)` (remember, the first argument of 
 
 ## Set up templating in Hapi
 
-For Hapi to render the templates correctly, it needs to know various things: 
+To use templates with Hapi we first need to `npm install` and register the `vision` plugin.
+
+```javascript
+server.register(require('vision'), (err) => {
+	//server routes in here
+}
+```
+Then, for Hapi to render the templates correctly, it needs to know various things: 
 
 1. The template engine to use
 2. The location of the template files to be passed to `server.view`
@@ -99,14 +107,16 @@ For Hapi to render the templates correctly, it needs to know various things:
 
 After connecting to the server, just call the `views` method and pass it a configuration object with this information:
 
-
 ```javascript
 server.views({
     engines: {
         html: require('handlebars')
     },
-    path: 'views',				//location of templates
-    layoutPath: 'views/layout',	//location of layouts
-    layout: 'default',			//location of defaul layout
+    relativeTo: __dirname,		  //base path
+    path: './views',			  //location of templates relative to relativeTo path
+    layoutPath: './views/layout', //location of layouts relative to relativeTo path.
+    layout: './default',		  //location of defaul layout relative to layoutPath
 });
 ```
+
+
