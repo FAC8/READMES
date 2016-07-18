@@ -102,8 +102,11 @@ Then, for Hapi to render the templates correctly, it needs to know various thing
 
 1. The template engine to use
 2. The location of the template files to be passed to `server.view`
-3. The location of layouts
-4. The name of the default layout
+
+If we wish to use a layout we also need
+3. An option to specify that we are using layouts 
+4. The location of layouts
+5. The name of the default layout
 
 After connecting to the server, just call the `views` method and pass it a configuration object with this information:
 
@@ -114,9 +117,15 @@ server.views({
     },
     relativeTo: __dirname,		  //base path
     path: './views',			  //location of templates relative to relativeTo path
+    layout: true,				  //enables layouts
     layoutPath: './views/layout', //location of layouts relative to relativeTo path.
     layout: './default',		  //location of defaul layout relative to layoutPath
 });
 ```
 
+Note that if we wish to use a layout other than `default.html` as the default layout, we can just specify its name as the value of the `layout` property instead of `true`. We may also wish to have more than one layout, so that certain views have another layout. If so, we tell hapi which views should have which layouts as follows:
+
+```javascript
+reply.view('myview', null, { layout: 'another_layout' });
+```
 
