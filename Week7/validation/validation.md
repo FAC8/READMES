@@ -104,3 +104,4 @@ For a full practical example of validation with joi please see our script [here]
 * Name two forms of data joi can validate.
 * What are the two steps required to use a joi schema?
 * Give an example of validation for the both the front and back end of an application.
+* According to the example code, what can happen if we don't use validation?.
