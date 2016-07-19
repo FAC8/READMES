@@ -172,8 +172,8 @@ We can use the with block to target the groupName property to access its values
    {{#with celebrity}}​
     <li>{{firstName}} {{lastName}}</li>​
     {{/with}}
-​</script>
-``` 
+​</script>;
+```
 
 ### Else: {{else}}
 
