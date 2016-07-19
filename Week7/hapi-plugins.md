@@ -55,4 +55,4 @@ Questions:
 
 2) Give example of two commonly used plugins?
 
-3) How do you make sure that your plugin is included in your server file?
+3) How do require your plugin into your server file?
