@@ -4,7 +4,7 @@
 
 Validation is the process that ensures all data handled by your application is correct. To validate a piece of datum, you check if it satisfies certain criteria. You would use validation, for instance, to make sure a new user's password contained a certain number of characters, or that they had submitted a valid email address.
 
-Validation can include the validation of the input and output of headers, paths parameters, query parameters, and payload data.
+Hapi's validation module can check the input and output of headers, paths parameters, query parameters, and payload data.
 
 ##Why is it important?
 
@@ -98,3 +98,8 @@ For a full practical example of validation with joi please see our script [here]
 * [Joi documentation](https://github.com/hapijs/joi)
 * [Hapi Validation documentation](http://hapijs.com/tutorials/validation)
 * [API Reference](https://github.com/hapijs/joi/blob/v9.0.1/API.md)
+
+##Lollipop Questions
+
+* Name two forms of data joi can validate.
+* What are the two steps required to use a joi schema?
