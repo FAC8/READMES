@@ -11,3 +11,9 @@ Authentication is checking to see if a client is who they say they are, as oppos
 * [bell](https://www.npmjs.com/package/bell), an authentication plug-in to authenticate using third party apps. Requires setting up a clientID and Client Secret with that app before use.
 
 To show you hapi-auth-basic in action we have created a repo which uses the plug-in to validate users. You can clone it [here](https://github.com/FAC8/hapi-basic-auth-demo).
+
+## Lolipop questions
+* What is authentication?
+* What is authorization?
+* Name 3 Hapi.js plug-ins that deal with authentication.
+* What is the name of the object passed to `server.route()`? (You can find the answer to this in the example code in the repo we have linked to!)
