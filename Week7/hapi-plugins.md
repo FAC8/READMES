@@ -4,7 +4,7 @@ Plugins are a way to efficiently modularize your code and add features to your c
 
 You can also write your own plugins in order to organize your code by feature.
 
-We found that the documentation to hapi plugins is extremely good so we gathered here a few really good links. Check out our screencast in which we will show you an example of building a hapi server by using plugins.
+We found that the documentation to hapi plugins is extremely good so we gathered here a few really good links. Check out our example right below where we will show you an example of inserting a plugin into your server.
 
 ### Here is an example of a plugin being used and registered
 
