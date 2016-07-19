@@ -159,3 +159,20 @@ Welcome, {{firstName}}
 Please Log in.
 {{/if}}
 ​</div>```
+
+#### Each Helper {{#each}}
+This each helper allows us to iterate over an array or object. Below is an example of how to implement this:
+
+```var favoriteFruits = {allFruits:["Tangerine", "Mango", "Banana"]};```
+
+This is then converted in to the code below:
+
+``` <script id="fruits-template" type="x-handlebars-template">​
+List of fruits:
+   {{#each allFruits}}​
+    <li>{{this}} </li>​
+    {{/each}}
+​</script>
+```
+
+*This* refers to the allFruits property.
