@@ -128,63 +128,79 @@ Note that if we wish to use a layout other than `default.html` as the default la
 ```javascript
 reply.view('myview', null, { layout: 'another_layout' });
 ```
-### Handlebar Helpers
+## Handlebar Helpers
 
 Helpers allows us to execute complex logic, which are the conditional and loops for executing simple logic.
 
-#### If Helper: {{#if}}
+### If Helper: {{#if}}
 
 If helper works just like if statement, except it does not accept any conditional logic. It checks for truthy values, and to do this we the userActive property is a truthy. If it is, the block is rendered.
 
-```<div class="user-data">​
+```html
+<div class="user-data">​
 {{#if userActive}}​
 Welcome, {{firstName}}
 {{/if}}
-​</div>```
+​</div>
+```
 
-#### Unless Helper: {{#unless}}
+### Unless Helper: {{#unless}}
 
 As an alternative to {{else}}, you can use the unless block helper. The content between the unless block will only be rendereed if the unless expression equates to a falsy value. To implement this helper, we replace the if and the else blocks with just the unless block.
 
-```<div class="user-data">​
+```html
+<div class="user-data">​
 {{#unless userLoggedIn}}​
 Please Log in.
-{{/unless}} </div>```
+{{/unless}} </div>
+```
 
-#### With Helper: {{#with}}
+### With Helper: {{#with}}
+
 The with helper allows us to target a specific property of the project.
 Take the following example:
 
-```var shoesData = {groupName:"Celebrities", celebrity:{firstName:"Mike", lastName:"Alexander" } };```
+```javascript
+var shoesData = {groupName:"Celebrities", celebrity:{firstName:"Mike", lastName:"Alexander" } };
+```
 
 We can use the with block to target the groupName property to access its values
 
-```<script id="shoe-template" type="x-handlebars-template">​
+```html
+<script id="shoe-template" type="x-handlebars-template">​
  {{groupName}} Group
    {{#with celebrity}}​
     <li>{{firstName}} {{lastName}}</li>​
     {{/with}}
 ​</script>
 ``` 
-#### Else: {{else}}
+
+### Else: {{else}}
+
 {{else}}, that can be used with any block helper to represent what should be output if the given expression evaluates to a falsy value.
 
-```<div class="user-data">​
+```html
+<div class="user-data">​
 {{#if userLoggedIn}}​
 Welcome, {{firstName}}
 {{else}}
 Please Log in.
 {{/if}}
-​</div>```
+​</div>
+```
 
-#### Each Helper {{#each}}
+### Each Helper {{#each}}
+
 This each helper allows us to iterate over an array or object. Below is an example of how to implement this:
 
-```var favoriteFruits = {allFruits:["Tangerine", "Mango", "Banana"]};```
+```javascript
+var favoriteFruits = {allFruits:["Tangerine", "Mango", "Banana"]};
+```
 
 This is then converted in to the code below:
 
-``` <script id="fruits-template" type="x-handlebars-template">​
+``` html
+<script id="fruits-template" type="x-handlebars-template">​
 List of fruits:
    {{#each allFruits}}​
     <li>{{this}} </li>​
@@ -193,3 +209,7 @@ List of fruits:
 ```
 
 *This* refers to the allFruits property.
+
+## Questions
+
+1. 
