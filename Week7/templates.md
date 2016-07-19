@@ -212,4 +212,7 @@ List of fruits:
 
 ## Questions
 
-1. 
+1. What is the standard directory structure for templates?
+2. What is the syntax for inserting elements in an array into a template?
+3. How do we switch layouts?
+4. What are the properties of the configuration object we pass to Server.views()?
