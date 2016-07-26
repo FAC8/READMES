@@ -1,5 +1,3 @@
-##Security
-
 
 # JSON Web Tokens
 
