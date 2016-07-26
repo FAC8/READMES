@@ -6,9 +6,9 @@ This short readme will introduce you to the (very) basic concepts of web storage
 
 |           | cookies | local storage | session storage | IndexedDB
 ------------ |------------ | ------------- | ------------ | ------------
-persistance  | cross-session | cross-session  | cross-session | cross-session
-data type    | strings | strings | strings | JavaScript objects
-data size allowed | small(4k) | small(10 MB) | small(10 MB) | Bigger but varies from one browser to another
+**persistance**  | cross-session | cross-session  | cross-session | cross-session
+**data-type**    | strings | strings | strings | JavaScript objects
+**data-size-allowed** | small(4k) | small(10 MB) | small(10 MB) | Bigger but varies from one browser to another
 
 
 ### Cookies
