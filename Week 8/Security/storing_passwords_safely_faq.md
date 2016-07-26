@@ -3,7 +3,7 @@
 
 I've listed some questions that I had in mind when I first came across this topic. Most of these examples expect you're using bcrypt for your hashing but it will give you a general idea of the whole process. Hope it helps!
 
-### What is hashing? 🔠#️⃣➡️🔣
+### What is hashing? 🔠⃣➡️🔣
 To put it simply, hash is just a crypted string. Hash is a one way function of some input. meaning that the same input always gives you the same output. It's practically impossible to reverse it, ie to go from the output to the input. For example the input could your password and the output a crazy string.
 
 Here is an example: 
