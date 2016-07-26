@@ -1,16 +1,16 @@
 ## Hapi Scopes
 
-API access tokens do not necessarily provide you with full access. Scopes limit access for OAuth tokens. They do not grant any additional permission beyond that which the user already has.
-
-Tokens are typically provided in a header property known as ```Authorization``` given in the form:
+Not all OAuth access tokens are created equally! When you make an API request with a token, typically with a header property known as ```Authorization``` given in the form:
 
 ```javascript
 Authorization: `token ${your-token-here}`
 ```
 
-Your access token contains information on which endpoints you have 'scope' to access.
+Your access token can contain information on which endpoints you have 'scope' to access. A good example of this is [Github's](https://developer.github.com/v3/oauth/#scopes) API, which will deny access to tokens which have the wrong scope authorization for the endpoint they are trying to access.
 
-It is easy to set up your own scope-based authorisation with Hapi which limits users' access to certain endpoints on your server in a way which is similar to authorisation we have already seen.
+It is easy to set up your own scope-based authorisation with Hapi. We do this by setting up the config object for a route with an auth object, and providing this object with a scope property. (You may recognise this set-up from the [readme](https://github.com/FAC8/READMES/blob/master/Week%207/authentication.md) which covered setting up authentication strategies for specific endpoints).
+
+For example if we wish to deny access to tokens which do not have an admin scope, we could do so by setting up our endpoint as below:
 
 ```javascript
 server.route({
@@ -26,12 +26,26 @@ server.route({
     }
 })
 ```
-In this particular example, the scope field tells Hapi to check the authorisation of that particular user to see if they should have access to things in the admin endpoint.
+In this particular example, the scope field tells Hapi to check the authorisation of that particular token to see if they should have access to things in the admin endpoint.
+
+Each endpoint may be within multiple scopes for example the following endpoint would be accessible to tokens with either the admin or jedi scopes:
 
 ```javascript
-{
-  "username": "yoda",
-  "scope": ["admin", "jedi"]
+auth: {
+    scope: ['admin','jedi']
 }
 ```
-This user will be authorised to receive the "Hello there, admin". If the user's credential object lacked the "admin" scope, Hapi would automatically reply with a 403 status code, and that user could not see the admin page.
+
+![you-shall-not-pass](you-shall-not-pass.jpg)
+
+## Resources
+
+[Harnessing Hapi Scopes](https://blog.andyet.com/2015/06/16/harnessing-hapi-scopes/)
+
+[Good Medium Article on Authorization](https://medium.com/@poeticninja/authentication-and-authorization-with-hapi-5529b5ecc8ec#.jy29hab03)
+
+## Lolipop questions
+
+True or false!
+* All API requests have a scope parameter
+* Scope can only be added to your hapi server with the scope plug-in
