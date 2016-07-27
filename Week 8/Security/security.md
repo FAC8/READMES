@@ -12,9 +12,9 @@ The signature is calculated using the header and payload so it is possible to ch
 They can be encrypted using either using HMAC and a secret, or RSA and a public/private key pair.
 
 They are comprised of three parts, seperated by periods:
--Header
--Payload
--Signature
+- Header
+- Payload
+- Signature
 
 ```
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWV9.TJVA95OrM7E2cBab30RMHrHDcEfxjoYZgeFONFh7HgQ
