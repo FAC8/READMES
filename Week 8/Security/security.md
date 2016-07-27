@@ -59,6 +59,7 @@ Authorization: Bearer <token>
 ```
 
 [Here](https://jwt.io/introduction/) is a simple walkthrough of generation and use of webtokens.
+
 [Here](https://egghead.io/lessons/misc-creating-jwts-json-web-tokens-in-node) is a 5 minute video on eggheads that takes you through the craetion of a webtoken using the node library crypto.
 
 ## Questions
