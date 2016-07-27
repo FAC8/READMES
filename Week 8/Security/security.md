@@ -64,4 +64,4 @@ Authorization: Bearer <token>
 
 ## Questions
 1. Name one difference between web tokens and cookies
-2. What are the three parts that comprise a wek token?
+2. What are the three parts that comprise a web token?
