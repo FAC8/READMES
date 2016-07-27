@@ -48,12 +48,12 @@ The payload contains claims ('key: value' pairs), which can contain recommended 
 
 The signature is created using the key, payload and secret/public-private key pair and cryptographic hashing algorithm. If you want to know how it actually works look [here](https://en.wikipedia.org/wiki/Hash-based_message_authentication_code).
 
-## The only things you really need to understand is as follows:
-- You don't need to store the JWT anywhere (NO MORE REDIS COOKIES!).
-- You can check whether the token is valid as long as you have the secret that was used to create it.
-- You can check whether the message was tampered with since the payload and headers are used to create the signature.
-- You can store whatever information you want in the payload (expiration date, access rights, encrypted api token/password)
-- You must store the JWT in the browser's local storage. The user should then send the token to the server in the request header under Authorization:
+## The only things you really need to understand are as follows:
+1. You don't need to store the JWT anywhere (NO MORE REDIS COOKIES!).
+2. You can check whether the token is valid as long as you have the secret that was used to create it.
+3. You can check whether the message was tampered with since the payload and headers are used to create the signature.
+4. You can store whatever information you want in the payload (expiration date, access rights, encrypted api token/password)
+5. You must store the JWT in the browser's local storage. The user should then send the token to the server in the request header under Authorization:
 ```
 Authorization: Bearer <token>
 ```
