@@ -1,4 +1,7 @@
 # React Router
+
+React Router is a complete routing library for React for keeping your UI in sync with the URL. It has a simple API with powerful features like lazy code loading, dynamic route matching, and location transition handling built right in. Make the URL your first thought, not an after-thought.
+
 There are 4 types of route components available with React Router:
 
 - Route
@@ -26,3 +29,5 @@ https://www.themarketingtechnologist.co/react-router-an-introduction/
 http://ricostacruz.com/cheatsheets/react-router.html
 
 https://medium.com/@dabit3/beginner-s-guide-to-react-router-53094349669#.fcqhhgmdd
+
+https://egghead.io/courses/getting-started-with-react-router
