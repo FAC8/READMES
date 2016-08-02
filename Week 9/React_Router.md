@@ -4,7 +4,7 @@ React Router is a complete routing library for React for keeping your UI in sync
 
 If - for example - you had a calendar app, by default it would display the current date and the week around it. The default url could be "www.calendar.com". If we were to change this and do "www.calendar.com/week7", it only displays data from Feb. without having to go through multiple routes, and paths. The advantage of Routing means that you do not need to load data that is not needed.
 
-The Router component is part of the React Router API, and its job is to deal with all of the routing-related logic our app will need. Inside this component, we specify what is known as the routing configuration. The specifics of that are handled by another component called **Route**:
+The Router component's job is to deal with all of the routing-related logic our app will need. Inside this component, we specify what is known as the routing configuration. The specifics of that are handled by another component called **Route**:
 
 ```javascript
 ReactDOM.render(
